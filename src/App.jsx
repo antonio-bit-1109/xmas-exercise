@@ -4,6 +4,7 @@ import NavBar from "./components/NavBar";
 import Jumbo from "./components/Jumbo";
 import MainSection from "./components/MainSection";
 import { useState } from "react";
+/* import { BrowserRouter as Router, Routes, Route } from "react-router-dom"; */
 
 function App() {
     const [BeforeInit, SetBeforeInit] = useState(true);
@@ -16,6 +17,7 @@ function App() {
         <div className="App">
             <NavBar />
             <Jumbo changeBeforeInit={changeBeforeInit} BeforeInit={BeforeInit} />
+
             <MainSection BeforeInit={BeforeInit} />
         </div>
     );

@@ -129,12 +129,11 @@ const MainSection = (props) => {
                                         </div>
 
                                         <div className="d-flex justify-content-between">
-                                            <div>
+                                            <div className="d-flex gap-2">
                                                 {" "}
                                                 <Button variant="btn btn-outline-secondary">View</Button>
-                                                <Button className="ms-2" variant="btn btn-outline-secondary">
-                                                    Edit
-                                                </Button>
+                                                <Button variant="btn btn-outline-secondary">Edit</Button>
+                                                <Button variant="btn btn-outline-primary">Download</Button>
                                             </div>
                                             <div className="d-flex align-items-center">
                                                 <p className="m-0">{image.id}</p>
