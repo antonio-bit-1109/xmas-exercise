@@ -91,6 +91,33 @@ const MainSection = (props) => {
         setInputPressButton(value);
     };
 
+    const downloadImage = (file, fileName) => {
+        // Extract the file extension from the URL
+        const fileExtension = file.split(".").pop();
+
+        fetch(file)
+            .then((response) => {
+                if (response.ok) {
+                    return response.blob();
+                }
+            })
+            .then((dataBlob) => {
+                const url = window.URL.createObjectURL(dataBlob);
+                const link = document.createElement("a");
+
+                // Set the download attribute with the specified file name and extension
+                link.href = url;
+                link.setAttribute("download", `${fileName}.${fileExtension}`);
+
+                document.body.appendChild(link);
+                link.click();
+                document.body.removeChild(link);
+            })
+            .catch((error) => {
+                console.error("Error downloading image:", error);
+            });
+    };
+
     return (
         <div className="bg-sfondoMain">
             <Container>
@@ -133,7 +160,12 @@ const MainSection = (props) => {
                                                 {" "}
                                                 <Button variant="btn btn-outline-secondary">View</Button>
                                                 <Button variant="btn btn-outline-secondary">Edit</Button>
-                                                <Button variant="btn btn-outline-primary">Download</Button>
+                                                <Button
+                                                    onClick={() => downloadImage(image.src.original, image.alt)}
+                                                    variant="btn btn-outline-primary"
+                                                >
+                                                    Download
+                                                </Button>
                                             </div>
                                             <div className="d-flex align-items-center">
                                                 <p className="m-0">{image.id}</p>
