@@ -6,7 +6,7 @@ import DefaultImg from "../images/default.png";
 import Form from "react-bootstrap/Form";
 
 const MainSection = () => {
-    const [searchItem, setSearchItem] = useState("japan");
+    const [searchItem, setSearchItem] = useState("winter");
     const [arrayDatas, setArrayDatas] = useState(null);
     console.log(arrayDatas);
     const [BeforeInit, SetBeforeInit] = useState(true);
