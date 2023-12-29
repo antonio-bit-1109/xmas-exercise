@@ -1,12 +1,14 @@
 import React, { useEffect, useState } from "react";
-import { Col, Container } from "react-bootstrap";
+import { Col, Container, Row } from "react-bootstrap";
 import Button from "react-bootstrap/Button";
 import Card from "react-bootstrap/Card";
 import DefaultImg from "../images/default.png";
+import Form from "react-bootstrap/Form";
 
 const MainSection = () => {
-    const [NomeSaga, setNomeSaga] = useState("harry Potter");
+    const [searchItem, setSearchItem] = useState("japan");
     const [arrayDatas, setArrayDatas] = useState(null);
+    console.log(arrayDatas);
     const [BeforeInit, SetBeforeInit] = useState(true);
 
     const [defaultValues, setDefaultValues] = useState(
@@ -25,6 +27,7 @@ const MainSection = () => {
         if (!BeforeInit) {
             fetchAGet();
         } else {
+            fetchAGet();
             return;
         }
     }, [BeforeInit]);
@@ -32,10 +35,13 @@ const MainSection = () => {
     const fetchAGet = () => {
         const options = {
             method: "GET",
-            headers: {},
+            headers: {
+                Authorization: "7Ye7PHnNDdVmd43T5cthTwaF0I2AipmjtizxjFtVcXnzQIgCqJYlTLXP",
+                "Content-type": "application/json",
+            },
         };
 
-        fetch(`http://www.omdbapi.com/?s=${NomeSaga}&apikey=195f13a4`, options)
+        fetch(`https://api.pexels.com/v1/search?query=${searchItem}`, options)
             .then((response) => {
                 console.log(response);
                 if (!response.ok) {
@@ -54,27 +60,57 @@ const MainSection = () => {
                 }
             })
             .then((data) => {
-                console.log(data.Search);
-                setArrayDatas(data.Search);
+                setArrayDatas(data.photos);
             });
     };
 
     return (
         <div className="bg-sfondoMain">
             <Container>
+                <Row>
+                    <div className="d-flex align-items-end">
+                        <Col sm={12} md={6} lg={4} xl={3}>
+                            <div className="mt-3 d-flex flex-column justify-content-end">
+                                <Form.Label htmlFor="inputPassword5">cosa stai cercando ? </Form.Label>
+                                <Form.Control
+                                    type="password"
+                                    id="inputPassword5"
+                                    aria-describedby="passwordHelpBlock"
+                                />
+                            </div>
+                        </Col>
+                        <Col>
+                            <Button variant="warning">Press Here</Button>
+                        </Col>
+                    </div>
+                </Row>
+            </Container>
+
+            <Container>
                 <div className="d-flex flex-wrap">
                     {arrayDatas &&
-                        arrayDatas.slice(0, 9).map((movie, index) => (
+                        arrayDatas.slice(0, 9).map((image, index) => (
                             <Col key={`key-fetch-${index}`} sm={12} md={6} lg={4}>
                                 <Card className="m-2 mt-5">
-                                    <Card.Img variant="top" src={movie.Poster} className="dimension-card-img" />
-                                    <Card.Body>
-                                        <Card.Title>Card Title</Card.Title>
+                                    <Card.Img variant="top" src={image.src.original} className="dimension-card-img" />
+                                    <Card.Body style={{ minHeight: "192px" }}>
+                                        <Card.Title>{image.alt}</Card.Title>
                                         <Card.Text>
                                             Some quick example text to build on the card title and make up the bulk of
                                             the card's content.
                                         </Card.Text>
-                                        <Button variant="primary">Go somewhere</Button>
+                                        <div className="d-flex justify-content-between">
+                                            <div>
+                                                {" "}
+                                                <Button variant="btn btn-outline-secondary">View</Button>
+                                                <Button className="ms-2" variant="btn btn-outline-secondary">
+                                                    Edit
+                                                </Button>
+                                            </div>
+                                            <div className="d-flex align-items-center">
+                                                <p className="m-0">{image.id}</p>
+                                            </div>
+                                        </div>
                                     </Card.Body>
                                 </Card>
                             </Col>
