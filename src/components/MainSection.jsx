@@ -111,12 +111,23 @@ const MainSection = (props) => {
                             <Col key={`key-fetch-${index}`} sm={12} md={6} lg={4}>
                                 <Card className="m-2 mt-5 shadow">
                                     <Card.Img variant="top" src={image.src.original} className="dimension-card-img" />
-                                    <Card.Body style={{ minHeight: "250px" }}>
+                                    <Card.Body style={{ minHeight: "320px" }}>
                                         <Card.Title>{image.alt}</Card.Title>
                                         <Card.Text>
                                             Some quick example text to build on the card title and make up the bulk of
                                             the card's content.
                                         </Card.Text>
+                                        <Card.Text className="fw-bold">{image.photographer}</Card.Text>
+                                        <div className="d-flex flex-column">
+                                            {" "}
+                                            <a className="m-1" href={image.src.original}>
+                                                Guarda l'originale
+                                            </a>
+                                            <a className="m-1" href={image.photographer_url}>
+                                                Vai al profilo dell'autore
+                                            </a>
+                                        </div>
+
                                         <div className="d-flex justify-content-between">
                                             <div>
                                                 {" "}
