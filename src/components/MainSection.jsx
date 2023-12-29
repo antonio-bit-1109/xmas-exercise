@@ -7,6 +7,8 @@ import InputSearch from "./InputSearch";
 
 const MainSection = (props) => {
     const [searchItem, setSearchItem] = useState("summer");
+    const [inputPressButton, setInputPressButton] = useState("");
+    const [btnClicked, setBtnClicked] = useState(false);
     const [arrayDatas, setArrayDatas] = useState(null);
     console.log(arrayDatas);
 
@@ -26,14 +28,34 @@ const MainSection = (props) => {
 
     useEffect(() => {
         if (BeforeInit === false) {
-            fetchAGet();
+            fetchAGet(searchItem);
         }
         if (BeforeInit === true) {
             setArrayDatas(null);
         }
     }, [BeforeInit]);
 
-    const fetchAGet = () => {
+    useEffect(() => {
+        if (btnClicked === true) {
+            fetchAGet(inputPressButton);
+        }
+        return riportabtnClickalValoreDefault;
+    }, [btnClicked]);
+
+    const riportabtnClickalValoreDefault = () => {
+        setBtnClicked(false);
+    };
+
+    const handlebtnClicked = (value) => {
+        setBtnClicked((prevBtnClicked) => {
+            if (prevBtnClicked !== value) {
+                return value;
+            }
+            return prevBtnClicked;
+        });
+    };
+
+    const fetchAGet = (value) => {
         const options = {
             method: "GET",
             headers: {
@@ -42,7 +64,7 @@ const MainSection = (props) => {
             },
         };
 
-        fetch(`https://api.pexels.com/v1/search?query=${searchItem}`, options)
+        fetch(`https://api.pexels.com/v1/search?query=${value}`, options)
             .then((response) => {
                 console.log(response);
                 if (!response.ok) {
@@ -65,8 +87,8 @@ const MainSection = (props) => {
             });
     };
 
-    const handleSearchItem = (value) => {
-        setSearchItem(value);
+    const handleinputPressButton = (value) => {
+        setInputPressButton(value);
     };
 
     return (
@@ -74,7 +96,10 @@ const MainSection = (props) => {
             <Container>
                 <Row>
                     <div className="d-flex align-items-end">
-                        <InputSearch handleSearchItem={handleSearchItem} />
+                        <InputSearch
+                            handleinputPressButton={handleinputPressButton}
+                            handlebtnClicked={handlebtnClicked}
+                        />
                     </div>
                 </Row>
             </Container>
