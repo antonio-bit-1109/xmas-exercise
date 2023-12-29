@@ -3,7 +3,6 @@ import { Col, Container, Row } from "react-bootstrap";
 import Button from "react-bootstrap/Button";
 import Card from "react-bootstrap/Card";
 import DefaultImg from "../images/default.png";
-import Form from "react-bootstrap/Form";
 import InputSearch from "./InputSearch";
 
 const MainSection = (props) => {
@@ -66,12 +65,16 @@ const MainSection = (props) => {
             });
     };
 
+    const handleSearchItem = (value) => {
+        setSearchItem(value);
+    };
+
     return (
         <div className="bg-sfondoMain">
             <Container>
                 <Row>
                     <div className="d-flex align-items-end">
-                        <InputSearch />
+                        <InputSearch handleSearchItem={handleSearchItem} />
                     </div>
                 </Row>
             </Container>
