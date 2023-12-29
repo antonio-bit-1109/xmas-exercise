@@ -4,12 +4,12 @@ import Button from "react-bootstrap/Button";
 import Card from "react-bootstrap/Card";
 import DefaultImg from "../images/default.png";
 import Form from "react-bootstrap/Form";
+import InputSearch from "./InputSearch";
 
-const MainSection = () => {
+const MainSection = (props) => {
     const [searchItem, setSearchItem] = useState("summer");
     const [arrayDatas, setArrayDatas] = useState(null);
     console.log(arrayDatas);
-    const [BeforeInit, SetBeforeInit] = useState(true);
 
     const [defaultValues, setDefaultValues] = useState(
         Array.from({ length: 9 }, () => ({
@@ -23,12 +23,14 @@ const MainSection = () => {
     );
     console.log(arrayDatas); /* array con dati della get  */
 
+    const { BeforeInit } = props;
+
     useEffect(() => {
-        if (!BeforeInit) {
+        if (BeforeInit === false) {
             fetchAGet();
-        } else {
-            fetchAGet();
-            return;
+        }
+        if (BeforeInit === true) {
+            setArrayDatas(null);
         }
     }, [BeforeInit]);
 
@@ -69,19 +71,7 @@ const MainSection = () => {
             <Container>
                 <Row>
                     <div className="d-flex align-items-end">
-                        <Col sm={12} md={6} lg={4} xl={3}>
-                            <div className="mt-3 d-flex flex-column justify-content-end">
-                                <Form.Label htmlFor="inputPassword5">cosa stai cercando ? </Form.Label>
-                                <Form.Control
-                                    type="password"
-                                    id="inputPassword5"
-                                    aria-describedby="passwordHelpBlock"
-                                />
-                            </div>
-                        </Col>
-                        <Col>
-                            <Button variant="warning">Press Here</Button>
-                        </Col>
+                        <InputSearch />
                     </div>
                 </Row>
             </Container>

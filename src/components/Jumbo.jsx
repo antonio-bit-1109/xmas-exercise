@@ -4,7 +4,9 @@ import Col from "react-bootstrap/esm/Col";
 import Container from "react-bootstrap/esm/Container";
 import Row from "react-bootstrap/esm/Row";
 
-const Jumbo = () => {
+const Jumbo = (props) => {
+    const { changeBeforeInit, BeforeInit } = props;
+
     return (
         <div className="bg-light">
             <Container>
@@ -17,7 +19,9 @@ const Jumbo = () => {
                                     This page will dynamically load pictures from the web, and display them in a cool
                                     way!
                                 </p>
-                                <Button variant="primary">Load Image</Button>
+                                <Button onClick={() => changeBeforeInit(!BeforeInit)} variant="primary">
+                                    Load Image
+                                </Button>
                                 <Button className="ms-2" variant="secondary">
                                     Load Second Image
                                 </Button>
