@@ -8,8 +8,9 @@ const MainSection = () => {
     const [NomeSaga, setNomeSaga] = useState("harry Potter");
     const [arrayDatas, setArrayDatas] = useState(null);
     const [BeforeInit, SetBeforeInit] = useState(true);
+
     const [defaultValues, setDefaultValues] = useState(
-        Array.from({ length: 10 }, () => ({
+        Array.from({ length: 9 }, () => ({
             img: DefaultImg,
             title: "Card Title",
             parag: "This is a wider card with supporting text below as a natural lead-in to additional content. This content is a little bit longer.",
@@ -19,6 +20,14 @@ const MainSection = () => {
         }))
     );
     console.log(arrayDatas); /* array con dati della get  */
+
+    useEffect(() => {
+        if (!BeforeInit) {
+            fetchAGet();
+        } else {
+            return;
+        }
+    }, [BeforeInit]);
 
     const fetchAGet = () => {
         const options = {
@@ -55,9 +64,9 @@ const MainSection = () => {
             <Container>
                 <div className="d-flex flex-wrap">
                     {arrayDatas &&
-                        arrayDatas.map((movie, index) => (
-                            <Col sm={12} md={6} lg={4}>
-                                <Card className="m-2 mt-5" key={`key-fetch-${index}`}>
+                        arrayDatas.slice(0, 9).map((movie, index) => (
+                            <Col key={`key-fetch-${index}`} sm={12} md={6} lg={4}>
+                                <Card className="m-2 mt-5">
                                     <Card.Img variant="top" src={movie.Poster} className="dimension-card-img" />
                                     <Card.Body>
                                         <Card.Title>Card Title</Card.Title>
@@ -72,9 +81,10 @@ const MainSection = () => {
                         ))}
 
                     {!arrayDatas &&
+                        BeforeInit === true &&
                         defaultValues.map((movie, index) => (
-                            <Col sm={12} md={6} lg={4}>
-                                <Card className="m-2 mt-5" key={`key-default-${index}`}>
+                            <Col key={`key-default-${index}`} sm={12} md={6} lg={4}>
+                                <Card className="m-2 mt-5">
                                     <Card.Img variant="top" src={movie.img} className="dimension-card-img" />
                                     <Card.Body>
                                         <Card.Title>{movie.title}</Card.Title>
