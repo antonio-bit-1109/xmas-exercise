@@ -33,14 +33,14 @@ const MainSection = (props) => {
         if (BeforeInit === true) {
             setArrayDatas(null);
         }
-    }, [BeforeInit]);
+    }, [BeforeInit, searchItem]);
 
     useEffect(() => {
         if (btnClicked === true) {
             fetchAGet(inputPressButton);
         }
         return riportabtnClickalValoreDefault;
-    }, [btnClicked]);
+    }, [btnClicked, inputPressButton]);
 
     const riportabtnClickalValoreDefault = () => {
         setBtnClicked(false);
