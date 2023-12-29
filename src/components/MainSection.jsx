@@ -6,7 +6,7 @@ import DefaultImg from "../images/default.png";
 import Form from "react-bootstrap/Form";
 
 const MainSection = () => {
-    const [searchItem, setSearchItem] = useState("winter");
+    const [searchItem, setSearchItem] = useState("summer");
     const [arrayDatas, setArrayDatas] = useState(null);
     console.log(arrayDatas);
     const [BeforeInit, SetBeforeInit] = useState(true);
@@ -91,9 +91,9 @@ const MainSection = () => {
                     {arrayDatas &&
                         arrayDatas.slice(0, 9).map((image, index) => (
                             <Col key={`key-fetch-${index}`} sm={12} md={6} lg={4}>
-                                <Card className="m-2 mt-5">
+                                <Card className="m-2 mt-5 shadow">
                                     <Card.Img variant="top" src={image.src.original} className="dimension-card-img" />
-                                    <Card.Body style={{ minHeight: "192px" }}>
+                                    <Card.Body style={{ minHeight: "250px" }}>
                                         <Card.Title>{image.alt}</Card.Title>
                                         <Card.Text>
                                             Some quick example text to build on the card title and make up the bulk of
