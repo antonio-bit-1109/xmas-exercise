@@ -8,10 +8,8 @@ const MainSection = (props) => {
     const [searchItem, setSearchItem] = useState("summer");
     const [inputPressButton, setInputPressButton] = useState("");
     const [btnClicked, setBtnClicked] = useState(false);
-    const [arrayDatas, setArrayDatas] = useState(null);
     const [cardHidden, setcardHidden] = useState([]);
     console.log("array card hidden", cardHidden);
-    console.log(arrayDatas);
 
     const [defaultValues, setDefaultValues] = useState(
         Array.from({ length: 6 }, () => ({
@@ -23,9 +21,9 @@ const MainSection = (props) => {
             time: "9 min",
         }))
     );
-    console.log(arrayDatas); /* array con dati della get  */
 
-    const { BeforeInit, secondLoadFetch, secondLoadValue } = props;
+    const { BeforeInit, secondLoadFetch, secondLoadValue, arrayDatas, setArrayDatas } = props;
+    console.log(arrayDatas); /* array con dati della get  */
 
     const handleCardHidden = (id) => {
         setcardHidden((previusCards) => {
