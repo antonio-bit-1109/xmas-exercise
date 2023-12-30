@@ -24,7 +24,7 @@ const MainSection = (props) => {
     );
     console.log(arrayDatas); /* array con dati della get  */
 
-    const { BeforeInit } = props;
+    const { BeforeInit, secondLoadFetch, secondLoadValue } = props;
 
     useEffect(() => {
         if (BeforeInit === false) {
@@ -41,6 +41,12 @@ const MainSection = (props) => {
         }
         return riportabtnClickalValoreDefault;
     }, [btnClicked, inputPressButton]);
+
+    useEffect(() => {
+        if (secondLoadFetch !== false) {
+            fetchAGet(secondLoadValue);
+        }
+    }, [secondLoadFetch, secondLoadValue]);
 
     const riportabtnClickalValoreDefault = () => {
         setBtnClicked(false);
@@ -156,7 +162,7 @@ const MainSection = (props) => {
                                         </div>
 
                                         <div className="d-flex justify-content-between">
-                                            <div className="d-flex gap-2">
+                                            <div className="d-flex gap-2 mt-2">
                                                 {" "}
                                                 <Button variant="btn btn-outline-secondary">View</Button>
                                                 <Button variant="btn btn-outline-secondary">Edit</Button>

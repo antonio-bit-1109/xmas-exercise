@@ -8,17 +8,28 @@ import { useState } from "react";
 
 function App() {
     const [BeforeInit, SetBeforeInit] = useState(true);
+    const [secondLoadFetch, setSecondLoadFetch] = useState(false);
+    const [secondLoadValue, setSecondLoadValue] = useState("winter");
 
     const changeBeforeInit = (value) => {
         SetBeforeInit(value);
     };
 
+    const handleSecondLoad = (value) => {
+        setSecondLoadFetch(value);
+    };
+
     return (
         <div className="App">
             <NavBar />
-            <Jumbo changeBeforeInit={changeBeforeInit} BeforeInit={BeforeInit} />
+            <Jumbo
+                changeBeforeInit={changeBeforeInit}
+                BeforeInit={BeforeInit}
+                handleSecondLoad={handleSecondLoad}
+                secondLoadFetch={secondLoadFetch}
+            />
 
-            <MainSection BeforeInit={BeforeInit} />
+            <MainSection BeforeInit={BeforeInit} secondLoadFetch={secondLoadFetch} secondLoadValue={secondLoadValue} />
         </div>
     );
 }

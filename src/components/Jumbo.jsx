@@ -5,7 +5,7 @@ import Container from "react-bootstrap/esm/Container";
 import Row from "react-bootstrap/esm/Row";
 
 const Jumbo = (props) => {
-    const { changeBeforeInit, BeforeInit } = props;
+    const { changeBeforeInit, BeforeInit, handleSecondLoad, secondLoadFetch } = props;
 
     return (
         <div className="bg-light">
@@ -22,7 +22,13 @@ const Jumbo = (props) => {
                                 <Button onClick={() => changeBeforeInit(!BeforeInit)} variant="primary">
                                     Load Image
                                 </Button>
-                                <Button className="ms-2" variant="secondary">
+                                <Button
+                                    onClick={() => {
+                                        handleSecondLoad(!secondLoadFetch);
+                                    }}
+                                    className="ms-2"
+                                    variant="secondary"
+                                >
                                     Load Second Image
                                 </Button>
                             </div>
