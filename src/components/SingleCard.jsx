@@ -18,9 +18,7 @@ const SingleCard = (props) => {
                             lg={4}
                         >
                             <Card className="m-2 mt-5 shadow card">
-                                <Link to={"/detailSinglePage"}>
-                                    <Card.Img variant="top" src={image.src.original} className="dimension-card-img" />
-                                </Link>
+                                <Card.Img variant="top" src={image.src.original} className="dimension-card-img" />
 
                                 <Card.Body>
                                     <Card.Title>{image.alt}</Card.Title>
@@ -42,7 +40,9 @@ const SingleCard = (props) => {
                                     <div className="d-flex justify-content-between flex-wrap">
                                         <div className="d-flex gap-2 mt-2">
                                             {" "}
-                                            <Button variant="btn btn-outline-secondary">View</Button>
+                                            <Link to={"/detailSinglePage"}>
+                                                <Button variant="btn btn-outline-secondary">View Details</Button>
+                                            </Link>
                                             <Button
                                                 onClick={() => {
                                                     handleCardHidden(image.id);
