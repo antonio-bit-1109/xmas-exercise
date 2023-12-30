@@ -26,6 +26,7 @@ const MainSection = (props) => {
 
     const { BeforeInit, secondLoadFetch, secondLoadValue } = props;
 
+    /* passare da card default a fetch attivata dal primo bottone in jumbo  */
     useEffect(() => {
         if (BeforeInit === false) {
             fetchAGet(searchItem);
@@ -35,6 +36,7 @@ const MainSection = (props) => {
         }
     }, [BeforeInit, searchItem]);
 
+    /* fetch a partire dalla stringa inserita in input  */
     useEffect(() => {
         if (btnClicked === true) {
             fetchAGet(inputPressButton);
@@ -42,6 +44,7 @@ const MainSection = (props) => {
         return riportabtnClickalValoreDefault;
     }, [btnClicked, inputPressButton]);
 
+    /* fetch al click del secondo bottone in jumbo */
     useEffect(() => {
         if (secondLoadFetch !== false) {
             fetchAGet(secondLoadValue);

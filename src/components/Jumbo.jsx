@@ -19,18 +19,20 @@ const Jumbo = (props) => {
                                     This page will dynamically load pictures from the web, and display them in a cool
                                     way!
                                 </p>
-                                <Button onClick={() => changeBeforeInit(!BeforeInit)} variant="primary">
-                                    Load Image
-                                </Button>
-                                <Button
-                                    onClick={() => {
-                                        handleSecondLoad(!secondLoadFetch);
-                                    }}
-                                    className="ms-2"
-                                    variant="secondary"
-                                >
-                                    Load Second Image
-                                </Button>
+                                <div className="d-flex flex-column align-items-center gap-2 d-md-block">
+                                    <Button onClick={() => changeBeforeInit(!BeforeInit)} variant="primary">
+                                        Load Image
+                                    </Button>
+                                    <Button
+                                        onClick={() => {
+                                            handleSecondLoad(!secondLoadFetch);
+                                        }}
+                                        className="ms-2"
+                                        variant="secondary"
+                                    >
+                                        Load Second Image
+                                    </Button>
+                                </div>
                             </div>
                         </div>
                     </Col>
