@@ -1,5 +1,6 @@
 import React from "react";
 import { Button, Card, Col } from "react-bootstrap";
+import { Link } from "react-router-dom";
 
 const SingleCard = (props) => {
     const { arrayDatas, cardHidden, handleCardHidden, downloadImage, BeforeInit, defaultValues } = props;
@@ -16,8 +17,11 @@ const SingleCard = (props) => {
                             md={6}
                             lg={4}
                         >
-                            <Card className="m-2 mt-5 shadow">
-                                <Card.Img variant="top" src={image.src.original} className="dimension-card-img" />
+                            <Card className="m-2 mt-5 shadow card">
+                                <Link to={"/detailSinglePage"}>
+                                    <Card.Img variant="top" src={image.src.original} className="dimension-card-img" />
+                                </Link>
+
                                 <Card.Body style={{ minHeight: "320px" }}>
                                     <Card.Title>{image.alt}</Card.Title>
                                     <Card.Text>
@@ -35,7 +39,7 @@ const SingleCard = (props) => {
                                         </a>
                                     </div>
 
-                                    <div className="d-flex justify-content-between">
+                                    <div className="d-flex justify-content-between flex-wrap">
                                         <div className="d-flex gap-2 mt-2">
                                             {" "}
                                             <Button variant="btn btn-outline-secondary">View</Button>
@@ -55,7 +59,7 @@ const SingleCard = (props) => {
                                             </Button>
                                         </div>
                                         <div className="d-flex align-items-center">
-                                            <p className="m-0">{image.id}</p>
+                                            <p className="m-1">{image.id}</p>
                                         </div>
                                     </div>
                                 </Card.Body>

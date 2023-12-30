@@ -19,6 +19,16 @@ ul {
     object-position: center top;
 }
 
+.card {
+    transition: all 300ms;
+}
+
+.card:hover {
+    scale: 1.1;
+    transition: all 300ms;
+    z-index: 999;
+}
+
 .bg-sfondoMain {
     background-color: #d3d6da;
 }

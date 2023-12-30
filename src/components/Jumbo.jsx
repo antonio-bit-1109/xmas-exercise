@@ -1,10 +1,12 @@
 import { Button } from "react-bootstrap";
-import React from "react";
+import React, { useState } from "react";
 import Col from "react-bootstrap/esm/Col";
 import Container from "react-bootstrap/esm/Container";
 import Row from "react-bootstrap/esm/Row";
 
 const Jumbo = (props) => {
+    const [buttonClicked, setButtonClicked] = useState("Load Image");
+
     const { changeBeforeInit, BeforeInit, handleSecondLoad, secondLoadFetch } = props;
 
     return (
@@ -20,8 +22,16 @@ const Jumbo = (props) => {
                                     way!
                                 </p>
                                 <div className="d-flex flex-column align-items-center gap-2 d-md-block">
-                                    <Button onClick={() => changeBeforeInit(!BeforeInit)} variant="primary">
-                                        Load Image
+                                    <Button
+                                        onClick={() => {
+                                            changeBeforeInit(!BeforeInit);
+                                            setButtonClicked((prevState) =>
+                                                prevState === "Load Image" ? "Deload Image" : "Load Image"
+                                            );
+                                        }}
+                                        variant="primary"
+                                    >
+                                        {buttonClicked}
                                     </Button>
                                     <Button
                                         onClick={() => {

@@ -6,6 +6,7 @@ import Navbar from "react-bootstrap/Navbar";
 import NavBarImg from "../images/logo.jpg";
 import Row from "react-bootstrap/Row";
 import Col from "react-bootstrap/Col";
+import { Link } from "react-router-dom";
 
 const NavBar = () => {
     return (
@@ -14,9 +15,11 @@ const NavBar = () => {
             <Navbar expand="none" className="bg-sfondo" variant="dark">
                 <Container>
                     <div className="d-flex align-items-center justify-content-between w-100 order-last">
-                        <Navbar.Brand href="#home">
-                            <img className="style-logo-navbar" src={NavBarImg} alt="logo" />
-                        </Navbar.Brand>
+                        <Link to="/homepage">
+                            <div>
+                                <img className="style-logo-navbar" src={NavBarImg} alt="logo" />
+                            </div>
+                        </Link>
                         <Navbar.Toggle aria-controls="basic-navbar-nav" />
                     </div>
                     <Navbar.Collapse id="basic-navbar-nav">
