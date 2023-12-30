@@ -10,7 +10,8 @@ const MainSection = (props) => {
     const [inputPressButton, setInputPressButton] = useState("");
     const [btnClicked, setBtnClicked] = useState(false);
     const [arrayDatas, setArrayDatas] = useState(null);
-    /*  const [cardHidden, setcardHidden] = useState(false); */
+    const [cardHidden, setcardHidden] = useState([]);
+    console.log("array card hidden", cardHidden);
     console.log(arrayDatas);
 
     const [defaultValues, setDefaultValues] = useState(
@@ -26,6 +27,16 @@ const MainSection = (props) => {
     console.log(arrayDatas); /* array con dati della get  */
 
     const { BeforeInit, secondLoadFetch, secondLoadValue } = props;
+
+    const handleCardHidden = (id) => {
+        setcardHidden((previusCards) => {
+            if (previusCards.includes.id) {
+                return previusCards.filter((cardId) => cardId !== id);
+            } else {
+                return [...previusCards, id];
+            }
+        });
+    };
 
     /* passare da card default a fetch attivata dal primo bottone in jumbo  */
     useEffect(() => {
@@ -146,7 +157,7 @@ const MainSection = (props) => {
                     {arrayDatas &&
                         arrayDatas.slice(0, 9).map((image, index) => (
                             <Col
-                                /* style={{ display: !cardHidden ? "block" : "none" }} */
+                                style={{ display: cardHidden.includes(image.id) ? "none" : "block" }}
                                 key={`key-fetch-${index}`}
                                 sm={12}
                                 md={6}
@@ -176,9 +187,9 @@ const MainSection = (props) => {
                                                 {" "}
                                                 <Button variant="btn btn-outline-secondary">View</Button>
                                                 <Button
-                                                    /* onClick={() => {
-                                                        setcardHidden(!cardHidden);
-                                                    }} */
+                                                    onClick={() => {
+                                                        handleCardHidden(image.id);
+                                                    }}
                                                     variant="btn btn-outline-secondary"
                                                 >
                                                     Hide
