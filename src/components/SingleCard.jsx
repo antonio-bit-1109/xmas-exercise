@@ -9,7 +9,7 @@ const SingleCard = (props) => {
         <>
             <div className="d-flex flex-wrap">
                 {arrayDatas &&
-                    arrayDatas.slice(0, 9).map((image, index) => (
+                    arrayDatas.slice(0, 6).map((image, index) => (
                         <Col
                             style={{ display: cardHidden.includes(image.id) ? "none" : "block" }}
                             key={`key-fetch-${index}`}
@@ -22,7 +22,7 @@ const SingleCard = (props) => {
                                     <Card.Img variant="top" src={image.src.original} className="dimension-card-img" />
                                 </Link>
 
-                                <Card.Body style={{ minHeight: "320px" }}>
+                                <Card.Body>
                                     <Card.Title>{image.alt}</Card.Title>
                                     <Card.Text>
                                         Some quick example text to build on the card title and make up the bulk of the
@@ -71,7 +71,7 @@ const SingleCard = (props) => {
                     BeforeInit === true &&
                     defaultValues.map((movie, index) => (
                         <Col key={`key-default-${index}`} sm={12} md={6} lg={4}>
-                            <Card className="m-2 mt-5">
+                            <Card style={{ height: "400px" }} className="m-2 mt-5">
                                 <Card.Img variant="top" src={movie.img} className="dimension-card-img" />
                                 <Card.Body>
                                     <Card.Title>{movie.title}</Card.Title>

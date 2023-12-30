@@ -14,7 +14,7 @@ const MainSection = (props) => {
     console.log(arrayDatas);
 
     const [defaultValues, setDefaultValues] = useState(
-        Array.from({ length: 9 }, () => ({
+        Array.from({ length: 6 }, () => ({
             img: DefaultImg,
             title: "Card Title",
             parag: "This is a wider card with supporting text below as a natural lead-in to additional content. This content is a little bit longer.",
