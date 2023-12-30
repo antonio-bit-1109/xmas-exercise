@@ -3,15 +3,7 @@ import Jumbo from "./Jumbo";
 import MainSection from "./MainSection";
 
 const HomePage = (props) => {
-    const {
-        changeBeforeInit,
-        BeforeInit,
-        handleSecondLoad,
-        secondLoadFetch,
-        secondLoadValue,
-        arrayDatas,
-        setArrayDatas,
-    } = props;
+    const { changeBeforeInit, BeforeInit, handleSecondLoad, secondLoadFetch, secondLoadValue } = props;
 
     return (
         <>
@@ -22,13 +14,7 @@ const HomePage = (props) => {
                 secondLoadFetch={secondLoadFetch}
             />
 
-            <MainSection
-                BeforeInit={BeforeInit}
-                secondLoadFetch={secondLoadFetch}
-                secondLoadValue={secondLoadValue}
-                arrayDatas={arrayDatas}
-                setArrayDatas={setArrayDatas}
-            />
+            <MainSection BeforeInit={BeforeInit} secondLoadFetch={secondLoadFetch} secondLoadValue={secondLoadValue} />
         </>
     );
 };

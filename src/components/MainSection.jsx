@@ -9,6 +9,7 @@ const MainSection = (props) => {
     const [inputPressButton, setInputPressButton] = useState("");
     const [btnClicked, setBtnClicked] = useState(false);
     const [cardHidden, setcardHidden] = useState([]);
+    const [arrayDatas, setArrayDatas] = useState(null);
     console.log("array card hidden", cardHidden);
 
     const [defaultValues, setDefaultValues] = useState(
@@ -22,7 +23,7 @@ const MainSection = (props) => {
         }))
     );
 
-    const { BeforeInit, secondLoadFetch, secondLoadValue, arrayDatas, setArrayDatas } = props;
+    const { BeforeInit, secondLoadFetch, secondLoadValue } = props;
     console.log(arrayDatas); /* array con dati della get  */
 
     const handleCardHidden = (id) => {

@@ -11,10 +11,9 @@ function App() {
     const [secondLoadFetch, setSecondLoadFetch] = useState(false);
     const [secondLoadValue, setSecondLoadValue] = useState("winter");
     const [start, setStart] = useState(true);
-    const [arrayDatas, setArrayDatas] = useState(null);
 
     /* prenditi in qualche modo l'id della card selezionata!!  */
-    const [idarray, setIdArray] = useState(null);
+
     const changeBeforeInit = (value) => {
         SetBeforeInit(value);
     };
@@ -38,14 +37,12 @@ function App() {
                                     handleSecondLoad={handleSecondLoad}
                                     secondLoadFetch={secondLoadFetch}
                                     secondLoadValue={secondLoadValue}
-                                    arrayDatas={arrayDatas}
-                                    setArrayDatas={setArrayDatas}
                                 />
                             }
                         />
                     )}
 
-                    <Route path="/detailSinglePage" element={<DetailsSingleCard arrayDatas={arrayDatas} />} />
+                    <Route path="/detailSinglePage" element={<DetailsSingleCard />} />
                 </Routes>
             </Router>
         </div>

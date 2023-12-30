@@ -26,7 +26,7 @@ const SingleCard = (props) => {
                                         Some quick example text to build on the card title and make up the bulk of the
                                         card's content.
                                     </Card.Text>
-                                    <Card.Text className="fw-bold">{image.photographer}</Card.Text>
+                                    <Card.Text className="fw-bold m-0">{image.photographer}</Card.Text>
                                     <div className="d-flex flex-column">
                                         {" "}
                                         <a className="m-1" href={image.src.original}>
@@ -40,7 +40,7 @@ const SingleCard = (props) => {
                                     <div className="d-flex justify-content-between flex-wrap">
                                         <div className="d-flex gap-2 mt-2">
                                             {" "}
-                                            <Link to={"/detailSinglePage"}>
+                                            <Link to={`/detailSinglePage?${image.id}`}>
                                                 <Button variant="btn btn-outline-secondary">View Details</Button>
                                             </Link>
                                             <Button
