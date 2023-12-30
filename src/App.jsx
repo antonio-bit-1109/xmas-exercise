@@ -12,6 +12,8 @@ function App() {
     const [secondLoadValue, setSecondLoadValue] = useState("winter");
     const [start, setStart] = useState(true);
     const [arrayDatas, setArrayDatas] = useState(null);
+
+    /* prenditi in qualche modo l'id della card selezionata!!  */
     const [idarray, setIdArray] = useState(null);
     const changeBeforeInit = (value) => {
         SetBeforeInit(value);
