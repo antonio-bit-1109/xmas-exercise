@@ -10,6 +10,7 @@ const MainSection = (props) => {
     const [inputPressButton, setInputPressButton] = useState("");
     const [btnClicked, setBtnClicked] = useState(false);
     const [arrayDatas, setArrayDatas] = useState(null);
+    /*  const [cardHidden, setcardHidden] = useState(false); */
     console.log(arrayDatas);
 
     const [defaultValues, setDefaultValues] = useState(
@@ -144,7 +145,13 @@ const MainSection = (props) => {
                 <div className="d-flex flex-wrap">
                     {arrayDatas &&
                         arrayDatas.slice(0, 9).map((image, index) => (
-                            <Col key={`key-fetch-${index}`} sm={12} md={6} lg={4}>
+                            <Col
+                                /* style={{ display: !cardHidden ? "block" : "none" }} */
+                                key={`key-fetch-${index}`}
+                                sm={12}
+                                md={6}
+                                lg={4}
+                            >
                                 <Card className="m-2 mt-5 shadow">
                                     <Card.Img variant="top" src={image.src.original} className="dimension-card-img" />
                                     <Card.Body style={{ minHeight: "320px" }}>
@@ -168,7 +175,14 @@ const MainSection = (props) => {
                                             <div className="d-flex gap-2 mt-2">
                                                 {" "}
                                                 <Button variant="btn btn-outline-secondary">View</Button>
-                                                <Button variant="btn btn-outline-secondary">Hide</Button>
+                                                <Button
+                                                    /* onClick={() => {
+                                                        setcardHidden(!cardHidden);
+                                                    }} */
+                                                    variant="btn btn-outline-secondary"
+                                                >
+                                                    Hide
+                                                </Button>
                                                 <Button
                                                     onClick={() => downloadImage(image.src.original, image.alt)}
                                                     variant="btn btn-outline-primary"
