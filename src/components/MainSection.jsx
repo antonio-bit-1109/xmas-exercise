@@ -165,7 +165,7 @@ const MainSection = (props) => {
                                             <div className="d-flex gap-2 mt-2">
                                                 {" "}
                                                 <Button variant="btn btn-outline-secondary">View</Button>
-                                                <Button variant="btn btn-outline-secondary">Edit</Button>
+                                                <Button variant="btn btn-outline-secondary">Hide</Button>
                                                 <Button
                                                     onClick={() => downloadImage(image.src.original, image.alt)}
                                                     variant="btn btn-outline-primary"
