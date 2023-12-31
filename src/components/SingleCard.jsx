@@ -40,7 +40,7 @@ const SingleCard = (props) => {
                                     <div className="d-flex justify-content-between flex-wrap">
                                         <div className="d-flex gap-2 mt-2">
                                             {" "}
-                                            <Link to={`/detailSinglePage?${image.id}`}>
+                                            <Link to={`/detailSinglePage?idImage=${image.id}`}>
                                                 <Button variant="btn btn-outline-secondary">View Details</Button>
                                             </Link>
                                             <Button

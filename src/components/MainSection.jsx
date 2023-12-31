@@ -103,6 +103,9 @@ const MainSection = (props) => {
             })
             .then((data) => {
                 setArrayDatas(data.photos);
+            })
+            .catch((err) => {
+                console.error(err);
             });
     };
 
