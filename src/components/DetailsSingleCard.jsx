@@ -61,9 +61,6 @@ const DetailsSingleCard = (props) => {
             <div className="d-flex alignitems-center w-auto">
                 <Link to={"/homepage"}>
                     <ArrowLeft className="display-2 m-4" />
-                    <div className="d-flex align-items-center">
-                        <p className="m-0"> Torna Indietro </p>
-                    </div>
                 </Link>
             </div>{" "}
             {imageObj === null ? (
