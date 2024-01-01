@@ -5,8 +5,6 @@ import Container from "react-bootstrap/esm/Container";
 import Row from "react-bootstrap/esm/Row";
 
 const Jumbo = (props) => {
-    const [buttonClicked, setButtonClicked] = useState("Load Image");
-
     const { changeBeforeInit, BeforeInit, handleSecondLoad, secondLoadFetch } = props;
 
     return (
@@ -25,13 +23,11 @@ const Jumbo = (props) => {
                                     <Button
                                         onClick={() => {
                                             changeBeforeInit(!BeforeInit);
-                                            setButtonClicked((prevState) =>
-                                                prevState === "Load Image" ? "Deload Image" : "Load Image"
-                                            );
                                         }}
                                         variant="primary"
                                     >
-                                        {buttonClicked}
+                                        {" "}
+                                        Load First Image{" "}
                                     </Button>
                                     <Button
                                         onClick={() => {

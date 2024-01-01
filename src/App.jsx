@@ -11,7 +11,6 @@ function App() {
     const [BeforeInit, SetBeforeInit] = useState(true);
     const [secondLoadFetch, setSecondLoadFetch] = useState(false);
     const [secondLoadValue, setSecondLoadValue] = useState("winter");
-    const [start, setStart] = useState(true);
 
     /* prenditi in qualche modo l'id della card selezionata!!  */
 
@@ -28,7 +27,7 @@ function App() {
             <Router>
                 <NavBar />
                 <Routes>
-                    {start && (
+                    {
                         <Route
                             path="/homepage"
                             element={
@@ -41,7 +40,7 @@ function App() {
                                 />
                             }
                         />
-                    )}
+                    }
 
                     <Route path="/detailSinglePage" element={<DetailsSingleCard />} />
                 </Routes>
