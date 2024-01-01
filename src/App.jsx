@@ -27,6 +27,13 @@ function App() {
         <div className="App">
             <Router>
                 <NavBar />
+                <HomePage
+                    changeBeforeInit={changeBeforeInit}
+                    BeforeInit={BeforeInit}
+                    handleSecondLoad={handleSecondLoad}
+                    secondLoadFetch={secondLoadFetch}
+                    secondLoadValue={secondLoadValue}
+                />
                 <Routes>
                     {start && (
                         <Route
