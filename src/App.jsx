@@ -9,17 +9,11 @@ import DetailsSingleCard from "./components/DetailsSingleCard";
 
 function App() {
     const [BeforeInit, SetBeforeInit] = useState(true);
-    const [secondLoadFetch, setSecondLoadFetch] = useState(false);
-    const [secondLoadValue, setSecondLoadValue] = useState("winter");
 
     /* prenditi in qualche modo l'id della card selezionata!!  */
 
     const changeBeforeInit = (value) => {
         SetBeforeInit(value);
-    };
-
-    const handleSecondLoad = (value) => {
-        setSecondLoadFetch(value);
     };
 
     return (
@@ -30,15 +24,7 @@ function App() {
                     {
                         <Route
                             path="/homepage"
-                            element={
-                                <HomePage
-                                    changeBeforeInit={changeBeforeInit}
-                                    BeforeInit={BeforeInit}
-                                    handleSecondLoad={handleSecondLoad}
-                                    secondLoadFetch={secondLoadFetch}
-                                    secondLoadValue={secondLoadValue}
-                                />
-                            }
+                            element={<HomePage changeBeforeInit={changeBeforeInit} BeforeInit={BeforeInit} />}
                         />
                     }
 

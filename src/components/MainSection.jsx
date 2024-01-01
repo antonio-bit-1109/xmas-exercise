@@ -23,7 +23,7 @@ const MainSection = (props) => {
         }))
     );
 
-    const { BeforeInit, secondLoadFetch, secondLoadValue, itemToSearchAgain } = props;
+    const { BeforeInit, itemToSearchAgain } = props;
     console.log(arrayDatas); /* array con dati della get  */
     console.log("itemtosearchagainInMainSection", itemToSearchAgain);
 
@@ -54,13 +54,6 @@ const MainSection = (props) => {
         }
         return riportabtnClickalValoreDefault;
     }, [btnClicked, inputPressButton]);
-
-    /* fetch al click del secondo bottone in jumbo */
-    useEffect(() => {
-        if (secondLoadFetch !== false) {
-            fetchAGet(secondLoadValue);
-        }
-    }, [secondLoadFetch, secondLoadValue]);
 
     /* fetch passando il valore dell'input, preso dalla pagina di DetailsSingleCard, passato a homepage e a mainsection per fare la fetch  */
     useEffect(() => {
