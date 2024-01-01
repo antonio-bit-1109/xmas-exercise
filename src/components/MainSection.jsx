@@ -24,6 +24,7 @@ const MainSection = (props) => {
     );
 
     const { BeforeInit, itemToSearchAgain } = props;
+
     console.log(arrayDatas); /* array con dati della get  */
     console.log("itemtosearchagainInMainSection", itemToSearchAgain);
 
