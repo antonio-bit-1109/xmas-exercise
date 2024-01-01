@@ -11,9 +11,14 @@ const DetailsSingleCard = (props) => {
     /* parametri presi dal click sulla singleCard passando l'id dell'immagine */
     const params = new URLSearchParams(window.location.search);
     console.log(params);
-
     const id = params.get("idImage");
     console.log("id", id);
+
+    /* mi porto dentro la stringa inserita nell input value al momento della ricerca, per poi riutilizzarla in una fetch quando clicco la freccia per tornare indietro  */
+    const inputPressButton = new URLSearchParams(window.location.search);
+    console.log(inputPressButton);
+    const itemToSearchAgain = inputPressButton.get("inputPressButton");
+    console.log("itemToSearchAgain", itemToSearchAgain);
 
     useEffect(() => {
         /* fai la fetch solo quando cambia l'id passato */
@@ -59,7 +64,7 @@ const DetailsSingleCard = (props) => {
     return (
         <div>
             <div className="d-flex alignitems-center w-auto">
-                <Link to={"/homepage"}>
+                <Link to={`/homepage?itemToSearchAgain=${itemToSearchAgain}`}>
                     <ArrowLeft className="display-2 m-4" />
                 </Link>
             </div>{" "}

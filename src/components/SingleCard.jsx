@@ -3,7 +3,8 @@ import { Button, Card, Col } from "react-bootstrap";
 import { Link } from "react-router-dom";
 
 const SingleCard = (props) => {
-    const { arrayDatas, cardHidden, handleCardHidden, downloadImage, BeforeInit, defaultValues } = props;
+    const { arrayDatas, cardHidden, handleCardHidden, downloadImage, BeforeInit, defaultValues, inputPressButton } =
+        props;
 
     return (
         <>
@@ -17,7 +18,7 @@ const SingleCard = (props) => {
                             md={6}
                             lg={4}
                         >
-                            <Card className="m-2 mt-5 shadow card">
+                            <Card className="m-2 mt-5 shadow pippo">
                                 <Card.Img variant="top" src={image.src.original} className="dimension-card-img" />
 
                                 <Card.Body>
@@ -40,7 +41,9 @@ const SingleCard = (props) => {
                                     <div className="d-flex justify-content-between flex-wrap">
                                         <div className="d-flex gap-2 mt-2">
                                             {" "}
-                                            <Link to={`/detailSinglePage?idImage=${image.id}`}>
+                                            <Link
+                                                to={`/detailSinglePage?idImage=${image.id}&inputPressButton=${inputPressButton}`}
+                                            >
                                                 <Button variant="btn btn-outline-secondary">View Details</Button>
                                             </Link>
                                             <Button

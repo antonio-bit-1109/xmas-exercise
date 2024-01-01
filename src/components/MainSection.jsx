@@ -23,7 +23,7 @@ const MainSection = (props) => {
         }))
     );
 
-    const { BeforeInit, secondLoadFetch, secondLoadValue } = props;
+    const { BeforeInit, secondLoadFetch, secondLoadValue, itemToSearchAgain } = props;
     console.log(arrayDatas); /* array con dati della get  */
 
     const handleCardHidden = (id) => {
@@ -60,6 +60,13 @@ const MainSection = (props) => {
             fetchAGet(secondLoadValue);
         }
     }, [secondLoadFetch, secondLoadValue]);
+
+    /* fetch passando il valore dell'input, preso dalla pagina di DetailsSingleCard, passato a homepage e a mainsection per fare la fetch  */
+    useEffect(() => {
+        if (itemToSearchAgain) {
+            fetchAGet(itemToSearchAgain);
+        }
+    }, [itemToSearchAgain]);
 
     const riportabtnClickalValoreDefault = () => {
         setBtnClicked(false);
@@ -161,6 +168,7 @@ const MainSection = (props) => {
                     downloadImage={downloadImage}
                     BeforeInit={BeforeInit}
                     defaultValues={defaultValues}
+                    inputPressButton={inputPressButton}
                 />
             </Container>
         </div>
