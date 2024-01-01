@@ -3,8 +3,16 @@ import { Button, Card, Col } from "react-bootstrap";
 import { Link } from "react-router-dom";
 
 const SingleCard = (props) => {
-    const { arrayDatas, cardHidden, handleCardHidden, downloadImage, BeforeInit, defaultValues, inputPressButton } =
-        props;
+    const {
+        arrayDatas,
+        cardHidden,
+        handleCardHidden,
+        downloadImage,
+        BeforeInit,
+        defaultValues,
+        inputPressButton,
+        itemToSearchAgain,
+    } = props;
 
     return (
         <>
@@ -42,7 +50,9 @@ const SingleCard = (props) => {
                                         <div className="d-flex gap-2 mt-2">
                                             {" "}
                                             <Link
-                                                to={`/detailSinglePage?idImage=${image.id}&inputPressButton=${inputPressButton}`}
+                                                to={`/detailSinglePage?idImage=${image.id}&inputPressButton=${
+                                                    inputPressButton || itemToSearchAgain
+                                                }`}
                                             >
                                                 <Button variant="btn btn-outline-secondary">View Details</Button>
                                             </Link>

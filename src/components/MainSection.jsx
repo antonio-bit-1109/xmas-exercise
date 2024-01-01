@@ -25,6 +25,7 @@ const MainSection = (props) => {
 
     const { BeforeInit, secondLoadFetch, secondLoadValue, itemToSearchAgain } = props;
     console.log(arrayDatas); /* array con dati della get  */
+    console.log("itemtosearchagainInMainSection", itemToSearchAgain);
 
     const handleCardHidden = (id) => {
         setcardHidden((previusCards) => {
@@ -169,6 +170,7 @@ const MainSection = (props) => {
                     BeforeInit={BeforeInit}
                     defaultValues={defaultValues}
                     inputPressButton={inputPressButton}
+                    itemToSearchAgain={itemToSearchAgain}
                 />
             </Container>
         </div>
