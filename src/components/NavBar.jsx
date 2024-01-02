@@ -15,7 +15,7 @@ const NavBar = () => {
             <Navbar expand="none" className="bg-sfondo" variant="dark">
                 <Container>
                     <div className="d-flex align-items-center justify-content-between w-100 order-last">
-                        <Link to="/homepage">
+                        <Link to="/defaultHomePage">
                             <div>
                                 <img className="style-logo-navbar" src={NavBarImg} alt="logo" />
                             </div>

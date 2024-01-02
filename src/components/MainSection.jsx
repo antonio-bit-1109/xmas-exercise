@@ -1,6 +1,6 @@
 import React, { useEffect, useState } from "react";
 import { Container, Row } from "react-bootstrap";
-import DefaultImg from "../images/default.png";
+
 import InputSearch from "./InputSearch";
 import SingleCard from "./SingleCard";
 
@@ -9,20 +9,10 @@ const MainSection = (props) => {
     const [btnClicked, setBtnClicked] = useState(false);
     const [cardHidden, setcardHidden] = useState([]);
     const [arrayDatas, setArrayDatas] = useState(null);
+    console.log(arrayDatas);
     console.log("array card hidden", cardHidden);
 
-    const [defaultValues, setDefaultValues] = useState(
-        Array.from({ length: 6 }, () => ({
-            img: DefaultImg,
-            title: "Card Title",
-            parag: "This is a wider card with supporting text below as a natural lead-in to additional content. This content is a little bit longer.",
-            textbutt1: "view",
-            textbutt2: "Edit",
-            time: "9 min",
-        }))
-    );
-
-    const { itemToSearchAgain } = props;
+    const { itemToSearchAgain, firstButton, handleFirstButtonValue } = props;
 
     console.log(arrayDatas); /* array con dati della get  */
     console.log("itemtosearchagainInMainSection", itemToSearchAgain);
@@ -38,6 +28,12 @@ const MainSection = (props) => {
     };
 
     /* passare da card default a fetch attivata dal primo bottone in jumbo  */
+    useEffect(() => {
+        if (firstButton) {
+            fetchAGet(firstButton);
+        }
+        return handleFirstButtonValue(null);
+    }, [firstButton, handleFirstButtonValue]);
 
     /* fetch a partire dalla stringa inserita in input  */
     useEffect(() => {
@@ -153,7 +149,6 @@ const MainSection = (props) => {
                     cardHidden={cardHidden}
                     handleCardHidden={handleCardHidden}
                     downloadImage={downloadImage}
-                    defaultValues={defaultValues}
                     inputPressButton={inputPressButton}
                     itemToSearchAgain={itemToSearchAgain}
                 />

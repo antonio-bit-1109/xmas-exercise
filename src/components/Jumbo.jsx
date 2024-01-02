@@ -3,8 +3,10 @@ import React, { useState } from "react";
 import Col from "react-bootstrap/esm/Col";
 import Container from "react-bootstrap/esm/Container";
 import Row from "react-bootstrap/esm/Row";
+import { Link } from "react-router-dom";
 
 const Jumbo = (props) => {
+    const { handleFirstButtonValue } = props;
     return (
         <div className="bg-light">
             <Container>
@@ -18,10 +20,17 @@ const Jumbo = (props) => {
                                     way!
                                 </p>
                                 <div className="d-flex flex-column align-items-center gap-2 d-md-block">
-                                    <Button onClick={() => {}} variant="primary">
-                                        {" "}
-                                        Load First Image{" "}
-                                    </Button>
+                                    <Link to={"/homepage"}>
+                                        <Button
+                                            onClick={() => {
+                                                handleFirstButtonValue("summer");
+                                            }}
+                                            variant="primary"
+                                        >
+                                            {" "}
+                                            Load First Image{" "}
+                                        </Button>
+                                    </Link>
                                     <Button onClick={() => {}} className="ms-2" variant="secondary">
                                         Load Second Image
                                     </Button>
