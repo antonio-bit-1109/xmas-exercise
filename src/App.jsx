@@ -11,8 +11,8 @@ import { useState } from "react";
 import NavBar from "./components/NavBar";
 
 function App() {
-    const [Button, setButton] = useState("");
-    console.log(Button);
+    const [Buttonis, setButton] = useState("");
+    console.log(Buttonis);
 
     const handleButtonValue = (value) => {
         setButton(value);
@@ -27,7 +27,7 @@ function App() {
                         path="/defaultHomePage"
                         element={
                             <>
-                                <div style={{ display: Button === "" ? "block" : "none" }}>
+                                <div style={{ display: Buttonis === "" ? "block" : "none" }}>
                                     <Jumbo handleButtonValue={handleButtonValue} />
                                     <DefaultHomePage />
                                 </div>
@@ -37,7 +37,7 @@ function App() {
 
                     <Route
                         path="/homepage"
-                        element={<HomePage Button={Button} handleButtonValue={handleButtonValue} />}
+                        element={<HomePage Buttonis={Buttonis} handleButtonValue={handleButtonValue} />}
                     />
 
                     <Route path="/detailSinglePage" element={<DetailsSingleCard />} />

@@ -12,9 +12,9 @@ const MainSection = (props) => {
     console.log(arrayDatas);
     console.log("array card hidden", cardHidden);
 
-    const { itemToSearchAgain, Button, handleButtonValue } = props;
+    const { itemToSearchAgain, Buttonis, handleButtonValue } = props;
 
-    console.log(Button);
+    console.log(Buttonis);
 
     console.log(arrayDatas); /* array con dati della get  */
     console.log("itemtosearchagainInMainSection", itemToSearchAgain);
@@ -31,15 +31,17 @@ const MainSection = (props) => {
 
     /* passare da card default a fetch attivata dal primo bottone in jumbo  */
     useEffect(() => {
-        if (Button === "summer") {
+        if (Buttonis === "summer") {
             fetchAGet("summer");
         }
-        if (Button === "rain") {
+        if (Buttonis === "rain") {
             fetchAGet("rain");
         }
 
-        return handleButtonValue("");
-    }, [Button, handleButtonValue]);
+        setTimeout(() => {
+            return handleButtonValue("");
+        }, 10000);
+    }, [Buttonis, handleButtonValue]);
 
     /* fetch a partire dalla stringa inserita in input  */
     useEffect(() => {
@@ -157,6 +159,7 @@ const MainSection = (props) => {
                     downloadImage={downloadImage}
                     inputPressButton={inputPressButton}
                     itemToSearchAgain={itemToSearchAgain}
+                    Buttonis={Buttonis}
                 />
             </Container>
         </div>

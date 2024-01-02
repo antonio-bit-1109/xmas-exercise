@@ -3,15 +3,8 @@ import { Button, Card, Col } from "react-bootstrap";
 import { Link } from "react-router-dom";
 
 const SingleCard = (props) => {
-    const {
-        arrayDatas,
-        cardHidden,
-        handleCardHidden,
-        downloadImage,
-
-        inputPressButton,
-        itemToSearchAgain,
-    } = props;
+    const { arrayDatas, cardHidden, handleCardHidden, downloadImage, inputPressButton, itemToSearchAgain, Buttonis } =
+        props;
 
     return (
         <>
@@ -50,7 +43,7 @@ const SingleCard = (props) => {
                                             {" "}
                                             <Link
                                                 to={`/detailSinglePage?idImage=${image.id}&inputPressButton=${
-                                                    inputPressButton || itemToSearchAgain
+                                                    inputPressButton || itemToSearchAgain || Buttonis
                                                 }`}
                                             >
                                                 <Button variant="btn btn-outline-secondary">View Details</Button>
