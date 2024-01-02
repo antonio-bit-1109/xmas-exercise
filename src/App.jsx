@@ -9,6 +9,7 @@ import DefaultHomePage from "./components/DefaultHomePage";
 import Jumbo from "./components/Jumbo";
 import { useState } from "react";
 import NavBar from "./components/NavBar";
+import Footer from "./components/Footer";
 
 function App() {
     const [Buttonis, setButton] = useState("");
@@ -22,6 +23,7 @@ function App() {
         <div className="App">
             <Router>
                 <NavBar />
+
                 <Routes>
                     <Route
                         path="/defaultHomePage"
@@ -42,6 +44,7 @@ function App() {
 
                     <Route path="/detailSinglePage" element={<DetailsSingleCard />} />
                 </Routes>
+                <Footer />
             </Router>
         </div>
     );
