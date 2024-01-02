@@ -5,8 +5,6 @@ import Container from "react-bootstrap/esm/Container";
 import Row from "react-bootstrap/esm/Row";
 
 const Jumbo = (props) => {
-    const { changeBeforeInit, BeforeInit } = props;
-
     return (
         <div className="bg-light">
             <Container>
@@ -20,12 +18,7 @@ const Jumbo = (props) => {
                                     way!
                                 </p>
                                 <div className="d-flex flex-column align-items-center gap-2 d-md-block">
-                                    <Button
-                                        onClick={() => {
-                                            changeBeforeInit(!BeforeInit);
-                                        }}
-                                        variant="primary"
-                                    >
+                                    <Button onClick={() => {}} variant="primary">
                                         {" "}
                                         Load First Image{" "}
                                     </Button>

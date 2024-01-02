@@ -8,7 +8,7 @@ const SingleCard = (props) => {
         cardHidden,
         handleCardHidden,
         downloadImage,
-        BeforeInit,
+
         defaultValues,
         inputPressButton,
         itemToSearchAgain,
@@ -81,7 +81,6 @@ const SingleCard = (props) => {
                     ))}
 
                 {!arrayDatas &&
-                    BeforeInit === true &&
                     defaultValues.map((movie, index) => (
                         <Col key={`key-default-${index}`} sm={12} md={6} lg={4}>
                             <Card style={{ height: "400px" }} className="m-2 mt-5">

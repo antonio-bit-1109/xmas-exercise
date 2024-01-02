@@ -5,7 +5,6 @@ import InputSearch from "./InputSearch";
 import SingleCard from "./SingleCard";
 
 const MainSection = (props) => {
-    const [searchItem, setSearchItem] = useState("summer");
     const [inputPressButton, setInputPressButton] = useState("");
     const [btnClicked, setBtnClicked] = useState(false);
     const [cardHidden, setcardHidden] = useState([]);
@@ -23,7 +22,7 @@ const MainSection = (props) => {
         }))
     );
 
-    const { BeforeInit, itemToSearchAgain } = props;
+    const { itemToSearchAgain } = props;
 
     console.log(arrayDatas); /* array con dati della get  */
     console.log("itemtosearchagainInMainSection", itemToSearchAgain);
@@ -39,14 +38,6 @@ const MainSection = (props) => {
     };
 
     /* passare da card default a fetch attivata dal primo bottone in jumbo  */
-    useEffect(() => {
-        if (BeforeInit === false) {
-            fetchAGet(searchItem);
-        }
-        if (BeforeInit === true) {
-            setArrayDatas(null);
-        }
-    }, [BeforeInit, searchItem]);
 
     /* fetch a partire dalla stringa inserita in input  */
     useEffect(() => {
@@ -115,6 +106,7 @@ const MainSection = (props) => {
         setInputPressButton(value);
     };
 
+    /* download dell immagine nella single card  */
     const downloadImage = (file, fileName) => {
         // Extract the file extension from the URL
         const fileExtension = file.split(".").pop();
@@ -161,7 +153,6 @@ const MainSection = (props) => {
                     cardHidden={cardHidden}
                     handleCardHidden={handleCardHidden}
                     downloadImage={downloadImage}
-                    BeforeInit={BeforeInit}
                     defaultValues={defaultValues}
                     inputPressButton={inputPressButton}
                     itemToSearchAgain={itemToSearchAgain}
