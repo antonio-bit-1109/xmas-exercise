@@ -8,7 +8,6 @@ const SingleCard = (props) => {
         cardHidden,
         handleCardHidden,
         downloadImage,
-
         defaultValues,
         inputPressButton,
         itemToSearchAgain,

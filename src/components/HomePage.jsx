@@ -1,4 +1,3 @@
-import React, { useState } from "react";
 import Jumbo from "./Jumbo";
 import MainSection from "./MainSection";
 
