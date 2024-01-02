@@ -14,6 +14,8 @@ const MainSection = (props) => {
 
     const { itemToSearchAgain, firstButton, handleFirstButtonValue } = props;
 
+    console.log(firstButton);
+
     console.log(arrayDatas); /* array con dati della get  */
     console.log("itemtosearchagainInMainSection", itemToSearchAgain);
 
@@ -29,10 +31,10 @@ const MainSection = (props) => {
 
     /* passare da card default a fetch attivata dal primo bottone in jumbo  */
     useEffect(() => {
-        if (firstButton) {
+        if (firstButton !== "") {
             fetchAGet(firstButton);
         }
-        return handleFirstButtonValue(null);
+        return handleFirstButtonValue("");
     }, [firstButton, handleFirstButtonValue]);
 
     /* fetch a partire dalla stringa inserita in input  */
