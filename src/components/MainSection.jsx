@@ -29,7 +29,7 @@ const MainSection = (props) => {
         });
     };
 
-    /* passare da card default a fetch attivata dal primo bottone in jumbo  */
+    /* passare da card default a fetch attivata dai bottoni in  jumbo  */
     useEffect(() => {
         if (Buttonis === "summer") {
             fetchAGet("summer");
