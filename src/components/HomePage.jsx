@@ -15,7 +15,7 @@ const HomePage = (props) => {
 
         return (
             <>
-                <Jumbo />
+                <Jumbo handleButtonValue={handleButtonValue} />
 
                 {/* esiste  itemToSearchAgain? usalo come props, altrimenti renderizza mainsection senza itemToSearchAgain come props*/}
                 {itemToSearchAgain ? (
