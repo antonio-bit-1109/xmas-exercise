@@ -12,9 +12,9 @@ const MainSection = (props) => {
     console.log(arrayDatas);
     console.log("array card hidden", cardHidden);
 
-    const { itemToSearchAgain, firstButton, handleFirstButtonValue } = props;
+    const { itemToSearchAgain, Button, handleButtonValue } = props;
 
-    console.log(firstButton);
+    console.log(Button);
 
     console.log(arrayDatas); /* array con dati della get  */
     console.log("itemtosearchagainInMainSection", itemToSearchAgain);
@@ -31,11 +31,15 @@ const MainSection = (props) => {
 
     /* passare da card default a fetch attivata dal primo bottone in jumbo  */
     useEffect(() => {
-        if (firstButton !== "") {
-            fetchAGet(firstButton);
+        if (Button === "summer") {
+            fetchAGet("summer");
         }
-        return handleFirstButtonValue("");
-    }, [firstButton, handleFirstButtonValue]);
+        if (Button === "rain") {
+            fetchAGet("rain");
+        }
+
+        return handleButtonValue("");
+    }, [Button, handleButtonValue]);
 
     /* fetch a partire dalla stringa inserita in input  */
     useEffect(() => {

@@ -4,7 +4,7 @@ import MainSection from "./MainSection";
 const HomePage = (props) => {
     /* acchiappo il valore ritornato dal componente DetailsSingleCard e lo prendo come props da usare in MainSection per rifare la fetch, in questo modo, al click del bottone "torna indietro" ritorno alla stessa pagina visualizzata prima di cliccare su 'view details'?? (forse) " */
 
-    const { firstButton, handleFirstButtonValue } = props;
+    const { Button, handleButtonValue } = props;
 
     const handleTheValueFromDetailsSingleCard = () => {
         const params = new URLSearchParams(window.location.search);
@@ -20,12 +20,12 @@ const HomePage = (props) => {
                 {/* esiste  itemToSearchAgain? usalo come props, altrimenti renderizza mainsection senza itemToSearchAgain come props*/}
                 {itemToSearchAgain ? (
                     <MainSection
-                        handleFirstButtonValue={handleFirstButtonValue}
-                        firstButton={firstButton}
+                        handleButtonValue={handleButtonValue}
+                        Button={Button}
                         itemToSearchAgain={itemToSearchAgain}
                     />
                 ) : (
-                    <MainSection handleFirstButtonValue={handleFirstButtonValue} firstButton={firstButton} />
+                    <MainSection handleButtonValue={handleButtonValue} Button={Button} />
                 )}
             </>
         );

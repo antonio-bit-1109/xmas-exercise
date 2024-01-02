@@ -6,7 +6,7 @@ import Row from "react-bootstrap/esm/Row";
 import { Link } from "react-router-dom";
 
 const Jumbo = (props) => {
-    const { handleFirstButtonValue } = props;
+    const { handleButtonValue } = props;
     return (
         <div className="bg-light">
             <Container>
@@ -23,7 +23,7 @@ const Jumbo = (props) => {
                                     <Link to={"/homepage"}>
                                         <Button
                                             onClick={() => {
-                                                handleFirstButtonValue("summer");
+                                                handleButtonValue("summer");
                                             }}
                                             variant="primary"
                                         >
@@ -31,9 +31,17 @@ const Jumbo = (props) => {
                                             Load First Image{" "}
                                         </Button>
                                     </Link>
-                                    <Button onClick={() => {}} className="ms-2" variant="secondary">
-                                        Load Second Image
-                                    </Button>
+                                    <Link to={"/homepage"}>
+                                        <Button
+                                            onClick={() => {
+                                                handleButtonValue("rain");
+                                            }}
+                                            className="ms-2"
+                                            variant="secondary"
+                                        >
+                                            Load Second Image
+                                        </Button>
+                                    </Link>
                                 </div>
                             </div>
                         </div>

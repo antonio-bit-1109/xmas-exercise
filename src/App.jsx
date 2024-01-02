@@ -11,12 +11,11 @@ import { useState } from "react";
 import NavBar from "./components/NavBar";
 
 function App() {
-    const [firstButton, setFirstButton] = useState("");
-    console.log(firstButton);
-    const [secondButton, setSecondButton] = useState("");
+    const [Button, setButton] = useState("");
+    console.log(Button);
 
-    const handleFirstButtonValue = (value) => {
-        setFirstButton(value);
+    const handleButtonValue = (value) => {
+        setButton(value);
     };
 
     return (
@@ -28,8 +27,8 @@ function App() {
                         path="/defaultHomePage"
                         element={
                             <>
-                                <div style={{ display: firstButton !== "" || firstButton === null ? "none" : "block" }}>
-                                    <Jumbo handleFirstButtonValue={handleFirstButtonValue} />
+                                <div style={{ display: Button === "" ? "block" : "none" }}>
+                                    <Jumbo handleButtonValue={handleButtonValue} />
                                     <DefaultHomePage />
                                 </div>
                             </>
@@ -38,7 +37,7 @@ function App() {
 
                     <Route
                         path="/homepage"
-                        element={<HomePage firstButton={firstButton} handleFirstButtonValue={handleFirstButtonValue} />}
+                        element={<HomePage Button={Button} handleButtonValue={handleButtonValue} />}
                     />
 
                     <Route path="/detailSinglePage" element={<DetailsSingleCard />} />
