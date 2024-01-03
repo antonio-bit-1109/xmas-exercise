@@ -78,12 +78,24 @@ const DetailsSingleCard = (props) => {
                     </Spinner>
                 </div>
             ) : (
-                <Card style={{ width: "80%", height: "auto" }} className="m-auto mt-5">
+                <Card style={{ width: "70%", height: "auto" }} className="m-auto border-0">
+                    <Card.Title className="display-4 mb-3">{imageObj.alt}</Card.Title>
                     <Card.Img variant="top" src={imageObj.src.landscape} />
                     <Card.Body>
-                        <Card.Title>{imageObj.alt}</Card.Title>
-                        <Card.Text>{imageObj.photographer}</Card.Text>
-                        <Card.Text>{imageObj.url}</Card.Text>
+                        <Card.Text className="fw-bold fs-3">{imageObj.photographer}</Card.Text>
+                        <Card.Text>
+                            Phasellus vel rutrum ante. Curabitur gravida consectetur enim ac pellentesque. Aliquam
+                            placerat turpis vel urna ornare dictum. Integer elementum mattis est. Sed tempor quam metus,
+                            eget varius risus convallis non. Maecenas cursus, lacus a iaculis placerat, velit magna
+                            malesuada massa, ut pharetra tortor neque sit amet eros. Nulla id diam sit amet neque
+                            facilisis accumsan. Cras nec enim sed eros condimentum efficitur. Suspendisse in turpis ex.
+                            Proin efficitur at lacus ac blandit. Sed posuere ultrices est vitae accumsan. Fusce sit amet
+                            lobortis libero
+                        </Card.Text>
+                        <a href={imageObj.url}>
+                            {" "}
+                            <Card.Text>Guarda il Profilo dell'artista </Card.Text>
+                        </a>
                     </Card.Body>
                 </Card>
             )}

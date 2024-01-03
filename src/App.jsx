@@ -7,7 +7,7 @@ import HomePage from "./components/HomePage";
 import DetailsSingleCard from "./components/DetailsSingleCard";
 import DefaultHomePage from "./components/DefaultHomePage";
 import Jumbo from "./components/Jumbo";
-import { useEffect, useState } from "react";
+import { useState } from "react";
 import NavBar from "./components/NavBar";
 import Footer from "./components/Footer";
 
