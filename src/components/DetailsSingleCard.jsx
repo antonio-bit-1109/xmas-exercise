@@ -25,6 +25,8 @@ const DetailsSingleCard = (props) => {
         letMakeAfetch(id);
     }, [id]);
 
+    const changeBgColorThief = () => {};
+
     const letMakeAfetch = (defaultId) => {
         const options = {
             method: "GET",
