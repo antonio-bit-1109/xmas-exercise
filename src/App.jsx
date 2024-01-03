@@ -36,9 +36,10 @@ function App() {
                         path="/defaultHomePage"
                         element={
                             <>
-                                <div style={{ display: Buttonis === "" ? "block" : "none" }}>
+                                <div style={{ display: Buttonis === "" ? "none" : "block" }}>
                                     <Jumbo handleButtonValue={handleButtonValue} />
                                     <DefaultHomePage />
+                                    <Footer />
                                 </div>
                             </>
                         }
