@@ -9,6 +9,7 @@ const MainSection = (props) => {
     const [btnClicked, setBtnClicked] = useState(false);
     const [cardHidden, setcardHidden] = useState([]);
     const [arrayDatas, setArrayDatas] = useState(null);
+
     console.log(arrayDatas);
     console.log("array card hidden", cardHidden);
 
@@ -37,10 +38,6 @@ const MainSection = (props) => {
         if (Buttonis === "rain") {
             fetchAGet("rain");
         }
-
-        setTimeout(() => {
-            return handleButtonValue("");
-        }, 10000);
     }, [Buttonis, handleButtonValue]);
 
     /* fetch a partire dalla stringa inserita in input  */

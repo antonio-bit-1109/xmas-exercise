@@ -13,8 +13,9 @@ import Footer from "./components/Footer";
 
 function App() {
     const [Buttonis, setButton] = useState("");
-    const [showFooter, setShowFooter] = useState(true);
     console.log(Buttonis);
+
+    const [showFooter, setShowFooter] = useState(true);
 
     const handleButtonValue = (value) => {
         setButton(value);
@@ -46,11 +47,14 @@ function App() {
                     <Route
                         path="/homepage"
                         element={
-                            <HomePage
-                                Buttonis={Buttonis}
-                                handleButtonValue={handleButtonValue}
-                                handleShowFooter={handleShowFooter}
-                            />
+                            <>
+                                <HomePage
+                                    Buttonis={Buttonis}
+                                    handleButtonValue={handleButtonValue}
+                                    handleShowFooter={handleShowFooter}
+                                />
+                                <Footer />
+                            </>
                         }
                     />
 
@@ -59,7 +63,6 @@ function App() {
                         element={<DetailsSingleCard handleShowFooter={handleShowFooter} />}
                     />
                 </Routes>
-                {showFooter && <Footer />}
             </Router>
         </div>
     );
