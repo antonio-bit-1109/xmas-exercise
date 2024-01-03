@@ -5,6 +5,8 @@ import { ArrowLeft } from "react-bootstrap-icons";
 import { Link } from "react-router-dom";
 
 const DetailsSingleCard = (props) => {
+    const { handleShowFooter } = props;
+
     const [imageObj, setImageObj] = useState(null);
     console.log(imageObj);
 
@@ -65,7 +67,7 @@ const DetailsSingleCard = (props) => {
         <div>
             <div className="d-flex alignitems-center w-auto">
                 <Link to={`/homepage?itemToSearchAgain=${itemToSearchAgain}`}>
-                    <ArrowLeft className="display-2 m-4" />
+                    <ArrowLeft onClick={handleShowFooter} className="display-2 m-4" />
                 </Link>
             </div>{" "}
             {imageObj === null ? (

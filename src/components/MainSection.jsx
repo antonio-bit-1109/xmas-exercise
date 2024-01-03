@@ -12,7 +12,7 @@ const MainSection = (props) => {
     console.log(arrayDatas);
     console.log("array card hidden", cardHidden);
 
-    const { itemToSearchAgain, Buttonis, handleButtonValue } = props;
+    const { itemToSearchAgain, Buttonis, handleButtonValue, handleShowFooter } = props;
 
     console.log(Buttonis);
 
@@ -160,6 +160,7 @@ const MainSection = (props) => {
                     inputPressButton={inputPressButton}
                     itemToSearchAgain={itemToSearchAgain}
                     Buttonis={Buttonis}
+                    handleShowFooter={handleShowFooter}
                 />
             </Container>
         </div>

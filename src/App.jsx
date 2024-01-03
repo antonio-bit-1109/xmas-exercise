@@ -7,16 +7,22 @@ import HomePage from "./components/HomePage";
 import DetailsSingleCard from "./components/DetailsSingleCard";
 import DefaultHomePage from "./components/DefaultHomePage";
 import Jumbo from "./components/Jumbo";
-import { useState } from "react";
+import { useEffect, useState } from "react";
 import NavBar from "./components/NavBar";
 import Footer from "./components/Footer";
 
 function App() {
     const [Buttonis, setButton] = useState("");
+    const [showFooter, setShowFooter] = useState(true);
     console.log(Buttonis);
 
     const handleButtonValue = (value) => {
         setButton(value);
+    };
+
+    /* approccio più corretto per cambiare il valore di uno stato, basandoti sul valore precedente  */
+    const handleShowFooter = () => {
+        setShowFooter((prevState) => !prevState);
     };
 
     return (
@@ -39,12 +45,21 @@ function App() {
 
                     <Route
                         path="/homepage"
-                        element={<HomePage Buttonis={Buttonis} handleButtonValue={handleButtonValue} />}
+                        element={
+                            <HomePage
+                                Buttonis={Buttonis}
+                                handleButtonValue={handleButtonValue}
+                                handleShowFooter={handleShowFooter}
+                            />
+                        }
                     />
 
-                    <Route path="/detailSinglePage" element={<DetailsSingleCard />} />
+                    <Route
+                        path="/detailSinglePage"
+                        element={<DetailsSingleCard handleShowFooter={handleShowFooter} />}
+                    />
                 </Routes>
-                <Footer />
+                {showFooter && <Footer />}
             </Router>
         </div>
     );
