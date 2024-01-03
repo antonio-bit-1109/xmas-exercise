@@ -12,13 +12,17 @@ const SingleCard = (props) => {
                 {arrayDatas &&
                     arrayDatas.slice(0, 6).map((image, index) => (
                         <Col
-                            style={{ display: cardHidden.includes(image.id) ? "none" : "block" }}
+                            style={{
+                                display: cardHidden.includes(image.id) ? "none" : "block",
+                                marginTop: index <= 2 ? "3rem" : "",
+                                marginBottom: index >= 3 ? "3rem" : "",
+                            }}
                             key={`key-fetch-${index}`}
                             sm={12}
                             md={6}
                             lg={4}
                         >
-                            <Card className="m-2 mt-5 shadow pippo">
+                            <Card className="m-2 mt-3 shadow pippo">
                                 <Card.Img variant="top" src={image.src.original} className="dimension-card-img" />
 
                                 <Card.Body>
