@@ -10,7 +10,6 @@ import Jumbo from "./components/Jumbo";
 import { useState } from "react";
 import Footer from "./components/Footer";
 import NavigateComponent from "./components/NavigateComponent";
-import { Navbar } from "react-bootstrap";
 import NavBar from "./components/NavBar";
 
 function App() {

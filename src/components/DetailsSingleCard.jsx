@@ -1,8 +1,9 @@
-import React, { useEffect, useState } from "react";
+import React, { useEffect, useRef, useState } from "react";
 import Card from "react-bootstrap/Card";
 import Spinner from "react-bootstrap/Spinner";
 import { ArrowLeft } from "react-bootstrap-icons";
 import { Link } from "react-router-dom";
+import ColorThief from "colorthief";
 
 const DetailsSingleCard = (props) => {
     const [imageObj, setImageObj] = useState(null);
@@ -78,7 +79,13 @@ const DetailsSingleCard = (props) => {
                     </Spinner>
                 </div>
             ) : (
-                <Card style={{ width: "70%", height: "auto" }} className="m-auto border-0">
+                <Card
+                    style={{
+                        width: "70%",
+                        height: "auto",
+                    }}
+                    className="m-auto border-0"
+                >
                     <Card.Title className="display-4 mb-3">{imageObj.alt}</Card.Title>
                     <Card.Img variant="top" src={imageObj.src.landscape} />
                     <Card.Body>
