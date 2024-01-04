@@ -39,9 +39,9 @@ const MainSection = (props) => {
             fetchAGet("rain");
         }
 
-        setTimeout(() => {
+        /* setTimeout(() => {
             return handleButtonValue("");
-        }, 10000);
+        }, 10000); */
     }, [Buttonis, handleButtonValue]);
 
     /* fetch a partire dalla stringa inserita in input  */

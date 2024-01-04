@@ -12,7 +12,7 @@ import NavBar from "./components/NavBar";
 import Footer from "./components/Footer";
 
 function App() {
-    const [Buttonis, setButton] = useState("");
+    const [Buttonis, setButton] = useState("default");
     console.log(Buttonis);
 
     /*     const [showFooter, setShowFooter] = useState(true); */
@@ -36,7 +36,7 @@ function App() {
                         path="/defaultHomePage"
                         element={
                             <>
-                                <div style={{ display: Buttonis === "" ? "block" : "none" }}>
+                                <div style={{ display: Buttonis !== "" ? "block" : "none" }}>
                                     <Jumbo handleButtonValue={handleButtonValue} />
                                     <DefaultHomePage />
                                     <Footer footerColor={"#E9EEF1"} />
