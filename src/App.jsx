@@ -10,6 +10,7 @@ import Jumbo from "./components/Jumbo";
 import { useState } from "react";
 import NavBar from "./components/NavBar";
 import Footer from "./components/Footer";
+import NavigateComponent from "./components/NavigateComponent";
 
 function App() {
     const [Buttonis, setButton] = useState("default");
@@ -29,7 +30,8 @@ function App() {
     return (
         <div className="App">
             <Router>
-                <NavBar />
+                {/* quando montato, naviga verso  "/defaultHomePage"*/}
+                <NavigateComponent />
 
                 <Routes>
                     <Route
