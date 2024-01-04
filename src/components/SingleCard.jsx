@@ -11,7 +11,7 @@ const SingleCard = (props) => {
         inputPressButton,
         itemToSearchAgain,
         Buttonis,
-        handleShowFooter,
+        /*  handleShowFooter, */
     } = props;
 
     return (
@@ -58,7 +58,9 @@ const SingleCard = (props) => {
                                                     inputPressButton || itemToSearchAgain || Buttonis
                                                 }`}
                                             >
-                                                <Button onClick={handleShowFooter} variant="btn btn-outline-secondary">
+                                                <Button
+                                                    /* onClick={handleShowFooter} */ variant="btn btn-outline-secondary"
+                                                >
                                                     View Details
                                                 </Button>
                                             </Link>

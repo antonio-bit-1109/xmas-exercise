@@ -15,17 +15,17 @@ function App() {
     const [Buttonis, setButton] = useState("");
     console.log(Buttonis);
 
-    const [showFooter, setShowFooter] = useState(true);
+    /*     const [showFooter, setShowFooter] = useState(true); */
 
     const handleButtonValue = (value) => {
         setButton(value);
     };
 
     /* approccio più corretto per cambiare il valore di uno stato, basandoti sul valore precedente  */
-    const handleShowFooter = () => {
+    /*     const handleShowFooter = () => {
         setShowFooter((prevState) => !prevState);
     };
-
+ */
     return (
         <div className="App">
             <Router>
@@ -52,7 +52,7 @@ function App() {
                                 <HomePage
                                     Buttonis={Buttonis}
                                     handleButtonValue={handleButtonValue}
-                                    handleShowFooter={handleShowFooter}
+                                    /*    handleShowFooter={handleShowFooter} */
                                 />
                                 <Footer />
                             </>
@@ -61,7 +61,7 @@ function App() {
 
                     <Route
                         path="/detailSinglePage"
-                        element={<DetailsSingleCard handleShowFooter={handleShowFooter} />}
+                        element={<DetailsSingleCard /* handleShowFooter={handleShowFooter} */ />}
                     />
                 </Routes>
             </Router>

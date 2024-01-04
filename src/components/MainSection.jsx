@@ -38,6 +38,10 @@ const MainSection = (props) => {
         if (Buttonis === "rain") {
             fetchAGet("rain");
         }
+
+        setTimeout(() => {
+            return handleButtonValue("");
+        }, 10000);
     }, [Buttonis, handleButtonValue]);
 
     /* fetch a partire dalla stringa inserita in input  */
@@ -157,7 +161,7 @@ const MainSection = (props) => {
                     inputPressButton={inputPressButton}
                     itemToSearchAgain={itemToSearchAgain}
                     Buttonis={Buttonis}
-                    handleShowFooter={handleShowFooter}
+                    /*    handleShowFooter={handleShowFooter} */
                 />
             </Container>
         </div>

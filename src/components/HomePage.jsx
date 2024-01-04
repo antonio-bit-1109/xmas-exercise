@@ -23,13 +23,13 @@ const HomePage = (props) => {
                         handleButtonValue={handleButtonValue}
                         Buttonis={Buttonis}
                         itemToSearchAgain={itemToSearchAgain}
-                        handleShowFooter={handleShowFooter}
+                        /*  handleShowFooter={handleShowFooter} */
                     />
                 ) : (
                     <MainSection
                         handleButtonValue={handleButtonValue}
                         Buttonis={Buttonis}
-                        handleShowFooter={handleShowFooter}
+                        /*  handleShowFooter={handleShowFooter} */
                     />
                 )}
             </>
