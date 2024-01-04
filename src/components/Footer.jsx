@@ -8,7 +8,7 @@ const Footer = (props) => {
         <div style={{ backgroundColor: footerColor }}>
             <Container>
                 <Row>
-                    <Col>
+                    <Col sm={12} md={6}>
                         <div className="text-center py-5">
                             {" "}
                             <div>
@@ -17,8 +17,8 @@ const Footer = (props) => {
                             </div>
                         </div>
                     </Col>
-                    <Col>
-                        <div className="text-center py-5">
+                    <Col sm={12} md={6}>
+                        <div className=" d-flex justify-content-center pb-3 align-items-md-center h-100">
                             <a href="#">
                                 {" "}
                                 <div>back To top </div>
