@@ -1,4 +1,4 @@
-import React, { useEffect, useRef, useState } from "react";
+import React, { Suspense, useEffect, useState } from "react";
 import Card from "react-bootstrap/Card";
 import Spinner from "react-bootstrap/Spinner";
 import { ArrowLeft } from "react-bootstrap-icons";
@@ -7,7 +7,9 @@ import ColorThief from "colorthief";
 
 const DetailsSingleCard = (props) => {
     const [imageObj, setImageObj] = useState(null);
-    console.log(imageObj);
+    console.log("imageObj", imageObj);
+    const [colorRubato, setColorRubato] = useState(null);
+    console.log("COLORE RUBATO ", colorRubato);
 
     /* parametri presi dal click sulla singleCard passando l'id dell'immagine */
     const params = new URLSearchParams(window.location.search);
@@ -26,7 +28,12 @@ const DetailsSingleCard = (props) => {
         letMakeAfetch(id);
     }, [id]);
 
-    const changeBgColorThief = () => {};
+    /*     const changeBgColorThief = (value) => {
+        const colorThief = new ColorThief();
+        const dominantColor = colorThief.getColor(value);
+        console.log("COLORE DOMINANTE", dominantColor[0]);
+        return setColorRubato(`rgb(${dominantColor[0]}, ${dominantColor[1]}, ${dominantColor[2]})`);
+    }; */
 
     const letMakeAfetch = (defaultId) => {
         const options = {
