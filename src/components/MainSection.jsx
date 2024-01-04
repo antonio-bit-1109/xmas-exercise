@@ -147,6 +147,7 @@ const MainSection = (props) => {
                         <InputSearch
                             handleinputPressButton={handleinputPressButton}
                             handlebtnClicked={handlebtnClicked}
+                            handleButtonValue={handleButtonValue}
                         />
                     </div>
                 </Row>

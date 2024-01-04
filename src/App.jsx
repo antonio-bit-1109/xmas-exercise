@@ -8,12 +8,13 @@ import DetailsSingleCard from "./components/DetailsSingleCard";
 import DefaultHomePage from "./components/DefaultHomePage";
 import Jumbo from "./components/Jumbo";
 import { useState } from "react";
-import NavBar from "./components/NavBar";
 import Footer from "./components/Footer";
 import NavigateComponent from "./components/NavigateComponent";
+import { Navbar } from "react-bootstrap";
+import NavBar from "./components/NavBar";
 
 function App() {
-    const [Buttonis, setButton] = useState("default");
+    const [Buttonis, setButton] = useState(null);
     console.log(Buttonis);
 
     /*     const [showFooter, setShowFooter] = useState(true); */
@@ -39,6 +40,7 @@ function App() {
                         element={
                             <>
                                 <div style={{ display: Buttonis !== "" ? "block" : "none" }}>
+                                    <NavBar />
                                     <Jumbo handleButtonValue={handleButtonValue} />
                                     <DefaultHomePage />
                                     <Footer footerColor={"#E9EEF1"} />
@@ -51,6 +53,8 @@ function App() {
                         path="/homepage"
                         element={
                             <>
+                                {" "}
+                                <NavBar />
                                 <HomePage
                                     Buttonis={Buttonis}
                                     handleButtonValue={handleButtonValue}

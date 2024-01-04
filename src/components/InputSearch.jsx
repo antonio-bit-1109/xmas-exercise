@@ -2,7 +2,7 @@ import React from "react";
 import { Button, Col, Form } from "react-bootstrap";
 
 const InputSearch = (props) => {
-    const { handleinputPressButton, handlebtnClicked } = props;
+    const { handleinputPressButton, handlebtnClicked, handleButtonValue } = props;
 
     return (
         <>
@@ -24,6 +24,7 @@ const InputSearch = (props) => {
                 <Button
                     onClick={() => {
                         handlebtnClicked(true);
+                        handleButtonValue(null);
                     }}
                     className="rounded-0 rounded-end-pill"
                     variant="warning"
