@@ -1,15 +1,24 @@
-import React, { Suspense, useEffect, useState } from "react";
+import React, { useEffect, useState } from "react";
 import Card from "react-bootstrap/Card";
 import Spinner from "react-bootstrap/Spinner";
 import { ArrowLeft } from "react-bootstrap-icons";
 import { Link } from "react-router-dom";
-import ColorThief from "colorthief";
+import Color from "color-thief-react";
 
 const DetailsSingleCard = (props) => {
     const [imageObj, setImageObj] = useState(null);
     console.log("imageObj", imageObj);
-    const [colorRubato, setColorRubato] = useState(null);
-    console.log("COLORE RUBATO ", colorRubato);
+
+    const [urlImageToThief, setUrlImageToThief] = useState(null);
+    console.log("urlImageToThief", urlImageToThief);
+
+    const [predominantColor, setPredominantColor] = useState("");
+    console.log("predominant color ", predominantColor);
+
+    const [colorRgba, setColorRgba] = useState(null);
+    console.log("COLORE IN RGBA", colorRgba);
+
+    const [bgColorTooDark, setBgColorTooDark] = useState(null);
 
     /* parametri presi dal click sulla singleCard passando l'id dell'immagine */
     const params = new URLSearchParams(window.location.search);
@@ -27,13 +36,6 @@ const DetailsSingleCard = (props) => {
         /* fai la fetch solo quando cambia l'id passato */
         letMakeAfetch(id);
     }, [id]);
-
-    /*     const changeBgColorThief = (value) => {
-        const colorThief = new ColorThief();
-        const dominantColor = colorThief.getColor(value);
-        console.log("COLORE DOMINANTE", dominantColor[0]);
-        return setColorRubato(`rgb(${dominantColor[0]}, ${dominantColor[1]}, ${dominantColor[2]})`);
-    }; */
 
     const letMakeAfetch = (defaultId) => {
         const options = {
@@ -71,8 +73,50 @@ const DetailsSingleCard = (props) => {
             });
     };
 
+    /* portare l'immagine che mi serve nello stato urlImageToThief*/
+    useEffect(() => {
+        if (imageObj !== null) {
+            setUrlImageToThief(imageObj.src.original);
+        }
+    }, [imageObj]);
+
+    useEffect(() => {
+        if (predominantColor !== "") {
+            const rgbaColor = hexToRGBA(predominantColor);
+            setColorRgba(rgbaColor);
+        }
+    }, [predominantColor]);
+
+    const hexToRGBA = (hexColor) => {
+        if (!hexColor) {
+            return null; // or any default value you prefer
+        }
+
+        const colorNohashTag = hexColor.replace(/^#/, "");
+
+        const colorToNumber = parseInt(colorNohashTag, 16);
+
+        const r = (colorToNumber >> 16) & 255;
+        const g = (colorToNumber >> 8) & 255;
+        const b = colorToNumber & 255;
+
+        return `rgba(${r}, ${g}, ${b}, 0.5)`;
+    };
+
     return (
         <div>
+            {" "}
+            {/* ColorThief  giù*/}
+            <Color src={urlImageToThief} crossOrigin="anonymous" format="hex">
+                {({ data, loading }) => {
+                    if (loading) return <div>wait...</div>;
+
+                    console.log("COLORE BELLO", data);
+
+                    setPredominantColor(data);
+                }}
+            </Color>
+            {/* ColorThief su */}
             <div className="d-flex alignitems-center w-auto">
                 <Link to={`/homepage?itemToSearchAgain=${itemToSearchAgain}`}>
                     <ArrowLeft className="display-2 m-4" />
@@ -90,8 +134,9 @@ const DetailsSingleCard = (props) => {
                     style={{
                         width: "70%",
                         height: "auto",
+                        backgroundColor: colorRgba,
                     }}
-                    className="m-auto border-0"
+                    className="m-auto border-0 p-4 mb-5 text-dark"
                 >
                     <Card.Title className="display-4 mb-3">{imageObj.alt}</Card.Title>
                     <Card.Img variant="top" src={imageObj.src.landscape} />

@@ -58,11 +58,7 @@ const SingleCard = (props) => {
                                                     inputPressButton || itemToSearchAgain || Buttonis
                                                 }`}
                                             >
-                                                <Button
-                                                    /* onClick={handleShowFooter} */ variant="btn btn-outline-secondary"
-                                                >
-                                                    View Details
-                                                </Button>
+                                                <Button variant="btn btn-outline-secondary">View Details</Button>
                                             </Link>
                                             <Button
                                                 onClick={() => {
