@@ -64,10 +64,7 @@ function App() {
                         }
                     />
 
-                    <Route
-                        path="/detailSinglePage"
-                        element={<DetailsSingleCard /* handleShowFooter={handleShowFooter} */ />}
-                    />
+                    <Route path="/detailSinglePage" element={<DetailsSingleCard />} />
                 </Routes>
             </Router>
         </div>
