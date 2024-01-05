@@ -18,8 +18,6 @@ const DetailsSingleCard = (props) => {
     const [colorRgba, setColorRgba] = useState(null);
     console.log("COLORE IN RGBA", colorRgba);
 
-    const [bgColorTooDark, setBgColorTooDark] = useState(null);
-
     /* parametri presi dal click sulla singleCard passando l'id dell'immagine */
     const params = new URLSearchParams(window.location.search);
     console.log(params);
