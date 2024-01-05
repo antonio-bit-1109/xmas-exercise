@@ -5,7 +5,7 @@ import { ArrowLeft } from "react-bootstrap-icons";
 import { Link } from "react-router-dom";
 import Color from "color-thief-react";
 
-const DetailsSingleCard = (props) => {
+const DetailsSingleCard = () => {
     const [imageObj, setImageObj] = useState(null);
     console.log("imageObj", imageObj);
 
