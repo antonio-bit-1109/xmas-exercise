@@ -54,11 +54,7 @@ function App() {
                             <>
                                 {" "}
                                 <NavBar />
-                                <HomePage
-                                    Buttonis={Buttonis}
-                                    handleButtonValue={handleButtonValue}
-                                    /*    handleShowFooter={handleShowFooter} */
-                                />
+                                <HomePage Buttonis={Buttonis} handleButtonValue={handleButtonValue} />
                                 <Footer />
                             </>
                         }

@@ -38,9 +38,17 @@ const NavBar = () => {
                                 <Col className="d-flex justify-content-start justify-content-xl-center">
                                     <ul>
                                         <h3>Contact</h3>
-                                        <li>Follow on Twitter</li>
-                                        <li>Like on Facebook</li>
-                                        <li>Email me</li>
+                                        <a href="https://twitter.com/?lang=en">
+                                            <li>Follow on Twitter</li>
+                                        </a>
+                                        <a href="https://www.facebook.com/">
+                                            {" "}
+                                            <li>Like on Facebook</li>
+                                        </a>
+                                        <a href="mailto:antonio.rizzuti@hotmail.com">
+                                            {" "}
+                                            <li>Email me</li>
+                                        </a>
                                     </ul>{" "}
                                 </Col>
                             </Row>
