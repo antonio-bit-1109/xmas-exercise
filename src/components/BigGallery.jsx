@@ -10,6 +10,7 @@ const BigGallery = (props) => {
     const [arrayofDatas, setArrayofDatas] = useState([]);
     console.log("ARRAY CON DATI FOTO", arrayofDatas);
 
+    /* se buttons è una stringa truty la fetch verrà fatta con quel valore, altrimenti col valore di default di "defaultValueForNow" */
     useEffect(() => {
         if (Buttonis) {
             doAFetch(Buttonis);
