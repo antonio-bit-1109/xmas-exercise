@@ -58,7 +58,6 @@ const BigGallery = (props) => {
             <Container>
                 {" "}
                 <Row>
-                    {" "}
                     <Col>
                         {" "}
                         <Carousel>
