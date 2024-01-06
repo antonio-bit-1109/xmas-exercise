@@ -11,6 +11,7 @@ import { useState } from "react";
 import Footer from "./components/Footer";
 import NavigateComponent from "./components/NavigateComponent";
 import NavBar from "./components/NavBar";
+import BigGallery from "./components/BigGallery";
 
 function App() {
     const [Buttonis, setButton] = useState(null);
@@ -19,7 +20,7 @@ function App() {
     /*     const [showFooter, setShowFooter] = useState(true); */
 
     const handleButtonValue = (value) => {
-        setButton(value);
+        return setButton(value);
     };
 
     /* approccio più corretto per cambiare il valore di uno stato, basandoti sul valore precedente  */
@@ -56,6 +57,15 @@ function App() {
                                 <NavBar />
                                 <HomePage Buttonis={Buttonis} handleButtonValue={handleButtonValue} />
                                 <Footer />
+                            </>
+                        }
+                    />
+                    <Route
+                        path="/Gallery"
+                        element={
+                            <>
+                                <NavBar /> <BigGallery handleButtonValue={handleButtonValue} />{" "}
+                                <Footer footerColor={"#E9EEF1"} />{" "}
                             </>
                         }
                     />

@@ -33,3 +33,11 @@ ul {
 .bg-sfondoMain {
     background-color: #d3d6da;
 }
+
+.no-underline {
+    text-decoration: none;
+}
+
+.highlight:hover {
+    font-size: 1.1rem;
+}

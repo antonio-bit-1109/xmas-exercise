@@ -2,7 +2,7 @@ import React from "react";
 import Container from "react-bootstrap/Container";
 import Nav from "react-bootstrap/Nav";
 import Navbar from "react-bootstrap/Navbar";
-/* import NavDropdown from "react-bootstrap/NavDropdown"; */
+
 import NavBarImg from "../images/logo.jpg";
 import Row from "react-bootstrap/Row";
 import Col from "react-bootstrap/Col";
@@ -15,11 +15,17 @@ const NavBar = () => {
             <Navbar expand="none" className="bg-sfondo" variant="dark">
                 <Container>
                     <div className="d-flex align-items-center justify-content-between w-100 order-last">
-                        <Link to="/defaultHomePage">
-                            <div>
-                                <img className="style-logo-navbar" src={NavBarImg} alt="logo" />
-                            </div>
-                        </Link>
+                        <div className="d-flex align-items-center">
+                            <Link to="/defaultHomePage">
+                                <div>
+                                    <img className="style-logo-navbar" src={NavBarImg} alt="logo" />
+                                </div>
+                            </Link>
+
+                            <Link className="no-underline" to={"/Gallery"}>
+                                <div className="text-light ms-4 fs-5"> Gallery</div>
+                            </Link>
+                        </div>
                         <Navbar.Toggle aria-controls="basic-navbar-nav" />
                     </div>
                     <Navbar.Collapse id="basic-navbar-nav">
