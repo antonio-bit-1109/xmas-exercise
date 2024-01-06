@@ -42,7 +42,7 @@ const MainSection = (props) => {
         /* setTimeout(() => {
             return handleButtonValue("");
         }, 10000); */
-    }, [Buttonis, handleButtonValue]);
+    }, [Buttonis]);
 
     /* fetch a partire dalla stringa inserita in input  */
     useEffect(() => {
