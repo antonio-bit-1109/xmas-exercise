@@ -23,6 +23,7 @@ const BigGallery = (props) => {
         }
     }, [defaultValueForNow, Buttonis]);
 
+    /* se btnclicked è true faccio la fetch con il valore ritornato dal inputpressbutton  */
     useEffect(() => {
         if (btnClicked) {
             doAFetch(inputPressButton);
