@@ -101,10 +101,10 @@ const BigGallery = (props) => {
                                     </div>
 
                                     <Carousel.Caption>
-                                        <h3>{object.alt}</h3>
-                                        <h4>{object.photographer}</h4>
+                                        <h3 className="fw-bold">{object.alt}</h3>
+                                        <h4 className="fst-italic fw-semibold">{object.photographer}</h4>
                                         <a className="no-underline text-light" href={object.photographer_url}>
-                                            <p>Visita il profilo dell'artista</p>
+                                            <p className="m-0">Visita il profilo dell'artista</p>
                                         </a>
                                     </Carousel.Caption>
                                 </Carousel.Item>
