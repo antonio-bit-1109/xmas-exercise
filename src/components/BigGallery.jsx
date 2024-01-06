@@ -1,6 +1,7 @@
 import React, { useEffect, useState } from "react";
 import { Col, Container, Row } from "react-bootstrap";
 import Carousel from "react-bootstrap/Carousel";
+import InputSearch from "./InputSearch";
 
 /*  vedere una galleria usando la stringa utilizzata per fare le altre fetch   */
 const BigGallery = (props) => {
@@ -58,6 +59,9 @@ const BigGallery = (props) => {
             <Container>
                 {" "}
                 <Row>
+                    <div className="d-flex align-items-end">
+                        <InputSearch />
+                    </div>
                     <Col>
                         {" "}
                         <Carousel>
