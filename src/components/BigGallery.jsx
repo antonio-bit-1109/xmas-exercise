@@ -57,7 +57,10 @@ const BigGallery = () => {
                         <Carousel>
                             {arrayofDatas.slice(0, 6).map((object, index) => (
                                 <Carousel.Item className="my-5" key={`item-${index}`}>
-                                    <img src={object.src.landscape} alt="foto" />
+                                    <div className="d-flex justify-content-center">
+                                        <img src={object.src.landscape} alt="foto" />
+                                    </div>
+
                                     <Carousel.Caption>
                                         <h3>{object.alt}</h3>
                                         <h4>{object.photographer}</h4>
