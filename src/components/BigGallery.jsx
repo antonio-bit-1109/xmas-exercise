@@ -11,6 +11,9 @@ const BigGallery = (props) => {
     const [arrayofDatas, setArrayofDatas] = useState([]);
     console.log("ARRAY CON DATI FOTO", arrayofDatas);
 
+    const [inputPressButton, setInputPressButton] = useState("");
+    const [btnClicked, setBtnClicked] = useState(false);
+
     /* se buttons è una stringa truty la fetch verrà fatta con quel valore, altrimenti col valore di default di "defaultValueForNow" */
     useEffect(() => {
         if (Buttonis) {
@@ -19,6 +22,28 @@ const BigGallery = (props) => {
             doAFetch(defaultValueForNow);
         }
     }, [defaultValueForNow, Buttonis]);
+
+    useEffect(() => {
+        if (btnClicked) {
+            doAFetch(inputPressButton);
+        }
+
+        return handlebtnClicked(false);
+    }, [btnClicked, inputPressButton]);
+
+    /* metodi per aggiornare l'input value e per gestire il click del bottone dell input seearch  */
+    const handleinputPressButton = (value) => {
+        setInputPressButton(value);
+    };
+
+    const handlebtnClicked = (value) => {
+        setBtnClicked((prevBtnClicked) => {
+            if (prevBtnClicked !== value) {
+                return value;
+            }
+            return prevBtnClicked;
+        });
+    };
 
     const doAFetch = (value) => {
         const options = {
@@ -60,12 +85,15 @@ const BigGallery = (props) => {
                 {" "}
                 <Row>
                     <div className="d-flex align-items-end">
-                        <InputSearch />
+                        <InputSearch
+                            handleinputPressButton={handleinputPressButton}
+                            handlebtnClicked={handlebtnClicked}
+                        />
                     </div>
                     <Col>
                         {" "}
                         <Carousel>
-                            {arrayofDatas.slice(0, 6).map((object, index) => (
+                            {arrayofDatas.slice(0, 10).map((object, index) => (
                                 <Carousel.Item className="my-5" key={`item-${index}`}>
                                     <div className="d-flex justify-content-center">
                                         <img src={object.src.landscape} alt="foto" />

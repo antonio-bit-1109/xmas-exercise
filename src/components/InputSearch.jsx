@@ -24,7 +24,7 @@ const InputSearch = (props) => {
                 <Button
                     onClick={() => {
                         handlebtnClicked(true);
-                        handleButtonValue(null);
+                        handleButtonValue && handleButtonValue(null);
                     }}
                     className="rounded-0 rounded-end-pill"
                     variant="warning"
