@@ -93,9 +93,9 @@ const BigGallery = (props) => {
                     </div>
                     <Col>
                         {" "}
-                        <Carousel>
+                        <Carousel fade>
                             {arrayofDatas.slice(0, 10).map((object, index) => (
-                                <Carousel.Item className="my-5" key={`item-${index}`}>
+                                <Carousel.Item interval={1000} className="my-5" key={`item-${index}`}>
                                     <div className="d-flex justify-content-center">
                                         <img src={object.src.landscape} alt="foto" />
                                     </div>

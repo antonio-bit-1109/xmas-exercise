@@ -38,6 +38,6 @@ ul {
     text-decoration: none;
 }
 
-.highlight:hover {
-    font-size: 1.1rem;
+.onHover:hover {
+    color: rgb(228, 95, 95);
 }

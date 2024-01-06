@@ -15,7 +15,7 @@ const NavBar = () => {
             <Navbar expand="none" className="bg-sfondo" variant="dark">
                 <Container>
                     <div className="d-flex align-items-center justify-content-between w-100 order-last">
-                        <div className="d-flex align-items-center">
+                        <div className="d-flex flex-column flex-sm-row align-items-center">
                             <Link to="/defaultHomePage">
                                 <div>
                                     <img className="style-logo-navbar" src={NavBarImg} alt="logo" />
@@ -23,7 +23,10 @@ const NavBar = () => {
                             </Link>
 
                             <Link className="no-underline" to={"/Gallery"}>
-                                <div className="text-light ms-4 fs-5"> Gallery</div>
+                                <div className="text-light mx-4 mt-4 fs-5">
+                                    {" "}
+                                    <p className="onHover">Image Gallery</p>
+                                </div>
                             </Link>
                         </div>
                         <Navbar.Toggle aria-controls="basic-navbar-nav" />
