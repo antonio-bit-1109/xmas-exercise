@@ -3,14 +3,20 @@ import { Col, Container, Row } from "react-bootstrap";
 import Carousel from "react-bootstrap/Carousel";
 
 /*  vedere una galleria usando la stringa utilizzata per fare le altre fetch   */
-const BigGallery = () => {
+const BigGallery = (props) => {
+    const { Buttonis } = props;
+
     const [defaultValueForNow, setdefaultValueForNow] = useState("matrix");
     const [arrayofDatas, setArrayofDatas] = useState([]);
     console.log("ARRAY CON DATI FOTO", arrayofDatas);
 
     useEffect(() => {
-        doAFetch(defaultValueForNow);
-    }, [defaultValueForNow]);
+        if (Buttonis) {
+            doAFetch(Buttonis);
+        } else {
+            doAFetch(defaultValueForNow);
+        }
+    }, [defaultValueForNow, Buttonis]);
 
     const doAFetch = (value) => {
         const options = {
