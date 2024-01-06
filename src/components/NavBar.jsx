@@ -14,7 +14,7 @@ const NavBar = () => {
             {" "}
             <Navbar expand="none" className="bg-sfondo" variant="dark">
                 <Container>
-                    <div className="d-flex align-items-center justify-content-between w-100 order-last">
+                    <div className="d-flex align-items-center justify-content-between w-100 ">
                         <div className="d-flex align-items-center">
                             <Link to="/defaultHomePage">
                                 <div>
