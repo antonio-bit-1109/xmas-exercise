@@ -1,6 +1,7 @@
 import React from "react";
 import { Button, Card, Col } from "react-bootstrap";
 import { Link } from "react-router-dom";
+import { Heart } from "react-bootstrap-icons";
 
 const SingleCard = (props) => {
     const { arrayDatas, cardHidden, handleCardHidden, downloadImage, inputPressButton, itemToSearchAgain, Buttonis } =
@@ -23,8 +24,11 @@ const SingleCard = (props) => {
                             lg={4}
                         >
                             <Card className="m-2 mt-3 shadow pippo">
-                                <Card.Img variant="top" src={image.src.original} className="dimension-card-img" />
+                                <div className="position-relative">
+                                    <Card.Img variant="top" src={image.src.original} className="dimension-card-img " />
 
+                                    <Heart className="position-absolute bottom-custom right-custom fs-3 text-light" />
+                                </div>
                                 <Card.Body>
                                     <Card.Title>{image.alt}</Card.Title>
                                     <Card.Text>

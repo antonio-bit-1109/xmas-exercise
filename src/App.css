@@ -41,3 +41,11 @@ ul {
 .onHover:hover {
     color: rgb(228, 95, 95);
 }
+
+.bottom-custom {
+    bottom: 1rem !important;
+}
+
+.right-custom {
+    right: 1rem !important;
+}
