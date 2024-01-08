@@ -87,7 +87,7 @@ const MainSection = (props) => {
                 if (!response.ok) {
                     if (response.status > 400 && response.status < 500) {
                         if (response.status === 429) {
-                            throw new Error("429 INFAME, PER TE TANTE COSE BRUTTE, (tipo le lame)");
+                            throw new Error("429 INFAME, PRENDI UN Pò DI VITAMINE ");
                         } else {
                             throw new Error("STAI CAPPELLANDO, RIGUARDA QUELLO CHE HAI SCRITTO");
                         }

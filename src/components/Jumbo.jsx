@@ -7,6 +7,7 @@ import { Link } from "react-router-dom";
 
 const Jumbo = (props) => {
     const { handleButtonValue } = props;
+
     return (
         <div className="bg-light">
             <Container>
