@@ -8,7 +8,7 @@ const MainSection = (props) => {
     const [inputPressButton, setInputPressButton] = useState("");
     const [btnClicked, setBtnClicked] = useState(false);
     const [cardHidden, setcardHidden] = useState([]);
-    const [arrayDatas, setArrayDatas] = useState(null);
+    const [arrayDatas, setArrayDatas] = useState(0);
 
     console.log(arrayDatas);
     console.log("array card hidden", cardHidden);

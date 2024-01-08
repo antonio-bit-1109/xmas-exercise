@@ -1,24 +1,37 @@
-import React from "react";
+import React, { useState } from "react";
 import { Button, Card, Col } from "react-bootstrap";
 import { Link } from "react-router-dom";
-import { Heart } from "react-bootstrap-icons";
+import { Heart, HeartFill } from "react-bootstrap-icons";
 
 const SingleCard = (props) => {
     const { arrayDatas, cardHidden, handleCardHidden, downloadImage, inputPressButton, itemToSearchAgain, Buttonis } =
         props;
+    console.log(arrayDatas);
+
+    const [heartClicks, setHeartClicks] = useState(Array(arrayDatas.length).fill(false));
+    console.log(heartClicks);
+
+    const handleHeartClicks = (index) => {
+        setHeartClicks((prevState) => {
+            const newHeartValue = [...prevState];
+            newHeartValue[index] = !prevState[index];
+            return newHeartValue;
+        });
+    };
 
     return (
         <>
             <div className="d-flex flex-wrap">
                 {arrayDatas &&
-                    arrayDatas.slice(0, 6).map((image, index) => (
+                    heartClicks &&
+                    arrayDatas.slice(0, 6).map((image, i) => (
                         <Col
                             style={{
                                 display: cardHidden.includes(image.id) ? "none" : "block",
-                                marginTop: index <= 2 ? "3rem" : "",
-                                marginBottom: index >= 3 ? "3rem" : "",
+                                marginTop: i <= 2 ? "3rem" : "",
+                                marginBottom: i >= 3 ? "3rem" : "",
                             }}
-                            key={`key-fetch-${index}`}
+                            key={`key-fetch-${i}`}
                             sm={12}
                             md={6}
                             lg={4}
@@ -27,7 +40,13 @@ const SingleCard = (props) => {
                                 <div className="position-relative">
                                     <Card.Img variant="top" src={image.src.original} className="dimension-card-img " />
 
-                                    <Heart className="position-absolute bottom-custom right-custom fs-3 text-light" />
+                                    <button
+                                        key={`icon-button${i}`}
+                                        onClick={() => handleHeartClicks(i)}
+                                        className="position-absolute bottom-custom right-custom fs-3 border-0 bg-transparent text-danger"
+                                    >
+                                        {!heartClicks[i] ? <Heart /> : <HeartFill />}
+                                    </button>
                                 </div>
                                 <Card.Body>
                                     <Card.Title>{image.alt}</Card.Title>
