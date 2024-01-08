@@ -1,3 +1,4 @@
+import { useSearchParams } from "react-router-dom";
 import Jumbo from "./Jumbo";
 import MainSection from "./MainSection";
 
@@ -6,12 +7,16 @@ const HomePage = (props) => {
 
     const { Buttonis, handleButtonValue } = props;
 
-    const handleTheValueFromDetailsSingleCard = () => {
-        const params = new URLSearchParams(window.location.search);
-        console.log(params);
+    /* versione URL search Params usando gli Hooks */
+    const [params] = useSearchParams();
+    const itemToSearchAgain = params.get("itemToSearchAgain");
 
-        const itemToSearchAgain = params.get("itemToSearchAgain");
-        console.log("itemToSearchAgain:", itemToSearchAgain);
+    const handleTheValueFromDetailsSingleCard = () => {
+        /*       const params = new URLSearchParams(window.location.search);
+        console.log(params); */
+
+        /*         const itemToSearchAgain = params.get("itemToSearchAgain");
+        console.log("itemToSearchAgain:", itemToSearchAgain); */
 
         return (
             <>
@@ -23,14 +28,9 @@ const HomePage = (props) => {
                         handleButtonValue={handleButtonValue}
                         Buttonis={Buttonis}
                         itemToSearchAgain={itemToSearchAgain}
-                        /*  handleShowFooter={handleShowFooter} */
                     />
                 ) : (
-                    <MainSection
-                        handleButtonValue={handleButtonValue}
-                        Buttonis={Buttonis}
-                        /*  handleShowFooter={handleShowFooter} */
-                    />
+                    <MainSection handleButtonValue={handleButtonValue} Buttonis={Buttonis} />
                 )}
             </>
         );
