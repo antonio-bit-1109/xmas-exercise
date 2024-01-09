@@ -64,7 +64,8 @@ function App() {
                         path="/Gallery"
                         element={
                             <>
-                                <NavBar /> <BigGallery handleButtonValue={handleButtonValue} Buttonis={Buttonis} />{" "}
+                                <NavBar />
+                                <BigGallery handleButtonValue={handleButtonValue} Buttonis={Buttonis} />{" "}
                                 <Footer footerColor={"#E9EEF1"} />{" "}
                             </>
                         }
